@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req,res){
     res.render('landing');
@@ -21,6 +22,6 @@ app.get('/photos', function(req,res){
     res.render('photos', {galleryPhotos:photos});
 });
 
-app.listen(8080, function(){
+app.listen(8081, function(){
     console.log('SERVER STARTED');
 });

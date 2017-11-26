@@ -31,6 +31,7 @@
     "gulp": "^3.9.1",
     "gulp-postcss": "^7.0.0",
     "gulp-watch": "^4.3.11",
+    "nodemon": "^1.12.1",
     "postcss-hexrgba": "^1.0.0",
     "postcss-import": "^11.0.0",
     "postcss-mixins": "^6.2.0",

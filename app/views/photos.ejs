@@ -1,8 +1,15 @@
-<h1>Photos</h1>
+<% include partials/header %>
 
-<% galleryPhotos.forEach(function(photo){ %>
-    <div>
-        <h3><%= photo.name %></h3></div>
-        <img src="<%= photo.image %>">
+<h1 class="gallery__title" style="margin-bottom: 20px;">Photos</h1>
+
+    <div class="row">
+        <% galleryPhotos.forEach(function(photo){ %>
+            <div class="col--4 col--4--sm" style="text-align: center;">
+                <h3><%= photo.name %></h3>
+                <img style="width:100%;" src="<%= photo.image %>">
+                <p ><%= photo.description %></p>
+            </div>
+        <% }); %>
     </div>
-<% }); %>
+
+<% include partials/footer %>
