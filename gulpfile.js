@@ -9,13 +9,14 @@ cssimport           = require('postcss-import'),
 mixins              = require('postcss-mixins'),
 browserSync         = require('browser-sync').create(),
 hexrgba             = require('postcss-hexrgba'),
-webpack             = require('webpack');    
+webpack             = require('webpack');
+  
 
 
 gulp.task('styles', function () {     // pipe css file through post-css filters to temp dir
     return gulp.src('./app/assets/styles/styles.css')
         .pipe(postcss([cssimport, mixins, cssvars, cssnested, hexrgba, autoprefixer]))      // postcss + autoprefixer create vendor prefixes for css     
-        .pipe(gulp.dest('./app/temp/styles'));              // cssimport will replace @import with text from css styles (modules)
+        .pipe(gulp.dest('./app/public/css'));              // cssimport will replace @import with text from css styles (modules)
 });                                                 // cssvars lets you use variables in css
                                                    // cssnested lets you nest css styles (ie SASS)
 gulp.task('watch', function () {
@@ -28,7 +29,7 @@ gulp.task('watch', function () {
         }
     });
 
-    watch('./app/index.html', function () {
+    watch('./app/index.js', function () {
         browserSync.reload();
     });
 

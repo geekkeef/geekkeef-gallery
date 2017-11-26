@@ -5,7 +5,7 @@
     margin-bottom: 25px;
     &--panel {
         height: 85px;
-        background: url(../../assets/images/benjamin-hung-340384.jpg);
+        background: url(/images/benjamin-hung-340384.jpg);
         background-size: cover;
         margin-right: 4px;
         color: #fff;

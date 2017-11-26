@@ -26,7 +26,7 @@ class Modal {
     }
 
     closeModal(){
-        this.modal.removeClass('modal--visible');
+        this.modal.removeClass('modal--visible'); // remove modal class
     }
 }
 

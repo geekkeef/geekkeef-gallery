@@ -11,7 +11,7 @@
         color: $mainPink;
     }
     &__lg--image {
-        background-image: url(../../assets/images/erik-lucatero-395688.jpg);
+        background-image: url(/images/erik-lucatero-395688.jpg);
         @mixin mediaSmallMax {
             height: 400px;
         }

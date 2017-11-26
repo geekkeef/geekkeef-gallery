@@ -13,7 +13,7 @@
         }
     }
     &--top div.col--7 {
-        background-image: url(../../assets/images/jason-leung-370358.png);
+        background-image: url(/images/jason-leung-370358.png);
     }
     &--bottom {
         background-color: $bgColorDarker;
