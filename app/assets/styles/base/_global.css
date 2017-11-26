@@ -9,7 +9,7 @@
         font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
         color: #333;
         &.splash {
-            background: url(../../assets/images/alexandre-st-louis-447911.jpg);
+            background: url(http://geekkeef.com/assets/pix/alexandre-st-louis-447911.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             color: #fff;
