@@ -1775,3 +1775,57 @@ li .nav--special {
         letter-spacing: 0.3rem;
         border-radius: 0 4px 4px 0;
     }
+
+/* Photo 
+ ================================================================ */
+
+.photo {
+    padding: 10px 0;
+}
+
+.photo__container--wide {
+        background-color: #1F2024;
+    }
+
+.photo__title {
+        text-align: center;
+    }
+
+.photo__title--h3 {
+        padding-top: 25px;
+        font-size: 1.4rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: #e3415c;
+    }
+
+.photo i {
+        font-size: 1.4rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: #e3415c;
+        padding-top: 5px;
+        padding-bottom: 25px;
+    }
+
+.photo__image img {
+            width: 100%;
+            border-top: 3px solid #e3415c;
+            border-bottom: 3px solid #16151a;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+                    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        }
+
+.photo p {
+        font-size: 0.8rem;
+        color: #7c7c7c;
+        line-height: 1.4rem;
+    }
+
+.photo__desc {
+        font-size: 1.2rem;
+        color: #1F2024;
+        line-height: 1.4rem;
+        font-weight: 200;
+        margin-top: 20px;
+    }

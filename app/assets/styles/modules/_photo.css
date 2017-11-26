@@ -1,0 +1,47 @@
+/* Photo 
+ ================================================================ */
+
+.photo {
+    padding: 10px 0;
+    &__container--wide {
+        background-color: $bgColorDark;
+    }
+    &__title {
+        text-align: center;
+    }
+    &__title--h3 {
+        padding-top: 25px;
+        font-size: 1.4rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: $mainPink;
+    }
+    i {
+        font-size: 1.4rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: $mainPink;
+        padding-top: 5px;
+        padding-bottom: 25px;
+    }
+    &__image {
+        img {
+            width: 100%;
+            border-top: 3px solid $mainPink;
+            border-bottom: 3px solid $bgColorDarker;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        }
+    }
+    p {
+        font-size: 0.8rem;
+        color: $mainGrey;
+        line-height: 1.4rem;
+    }
+    &__desc {
+        font-size: 1.2rem;
+        color: $bgColorDark;
+        line-height: 1.4rem;
+        font-weight: 200;
+        margin-top: 20px;
+    }
+}

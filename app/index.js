@@ -72,6 +72,17 @@ app.get('/gallery/new', function(req,res){
     res.render('new');
 });
 
+app.get('/gallery/:id', function(req,res){
+    Gallery.findById(req.params.id, function(err, foundPhoto){
+        if(err || !foundPhoto || !req.params.id){
+            res.status(500).send({ error: 'Could not load photo' });
+            console.log(err);
+        }else{
+            res.render('show', {photo:foundPhoto});
+        }
+    });
+});
+
 app.listen(8090, function(){
     console.log('SERVER STARTED');
 });

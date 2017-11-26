@@ -1,0 +1,50 @@
+<% include partials/header %>
+
+    <div class="photo">
+        <div class="row">
+            <div class="col--12">
+                <div class="photo__title">
+                    <h3 class="photo__title--h3"><%= photo.name %></h3>
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- container short -->
+
+<div class="container container--wide photo__container--wide">
+    <div class="container container--short">
+        <div class="photo">
+            <div class="row">
+                <div class="col--12">
+                    <div class="photo__image">
+                        <img src="<%= photo.image %>">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container container--short">
+    <div class="photo">
+        <div class="row">
+            <div class="col--12">
+                <h3 class="photo__desc">
+                    <%= photo.description %>
+                </h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col--6 col--6--sm">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat finibus dui eu ultricies. Quisque tincidunt ligula sit amet tellus ultricies, quis vehicula risus feugiat. In malesuada, est vel placerat cursus, felis nunc volutpat tortor, convallis tincidunt velit lacus eu dui. Duis posuere ante at ligula commodo, et sagittis purus consectetur. </p>
+            </div>
+            <div class="col--6 col--6--sm">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur eros enim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sodales mauris vitae suscipit posuere. </p>
+            </div>
+        </div>
+    </div>
+
+
+
+<% include partials/footer %>
