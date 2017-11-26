@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/geekkeef/starter-website#readme",
   "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
     "jquery": "^3.2.1",
     "normalize.css": "^7.0.0"
   },
