@@ -750,7 +750,7 @@ html,
 .nav {
             background-color: #1F2024;
             min-height: 50px;
-            margin-bottom: 30px;
+            margin-bottom: 7px;
             padding-right: 5px;
             margin-right: 8px;
             border: 1px solid transparent;
@@ -1107,9 +1107,22 @@ li .nav--special {
     margin-bottom: 25px;
 }
 
+.welcome__title--bar {
+        background-color: #468284;
+        border-radius: 3px;
+        padding: 13px 0 13px 20px;
+        margin-right: 4px;
+    }
+
+.welcome__title--bar + hr {
+            margin-bottom: 1px;
+        }
+
 .welcome__title--h3 {
+        font-size: 0.9rem;
         font-weight: 200;
         letter-spacing: 0.3rem;
+        color: #fff;
     }
 
 .welcome__img--controller {
@@ -1214,10 +1227,25 @@ li .nav--special {
         }
     }
 
+.gallery__title--bar {
+        background-color: #1F2024;
+        border-radius: 3px;
+        padding: 14px 0 14px 20px;
+    }
+
+.gallery__title--bar a {
+            color: #e3415c;
+        }
+
+.gallery__title--bar a:hover {
+                color: #fff;
+            }
+
 .gallery__title {
-        color: #e3415c;
+        font-size: 0.9rem;
         font-weight: 200;
         letter-spacing: 0.3rem;
+        color: #e3415c;
     }
 
 .gallery__lg--image {
@@ -1319,11 +1347,26 @@ li .nav--special {
 /* Follow 
  ================================================================ */
 
+.follow__title--bar {
+        background-color: #1F2024;
+        border-radius: 3px;
+        padding: 14px 0 14px 20px;
+    }
+
 .follow__title {
         color: #e3415c;
+        font-size: 0.9rem;
         font-weight: 200;
         letter-spacing: 0.3rem;
     }
+
+.follow__title a {
+            color: #e3415c;
+        }
+
+.follow__title a:hover {
+                color: #fff;
+            }
 
 .follow__a {
         color: #fff;
@@ -1695,6 +1738,7 @@ li .nav--special {
 .main-gallery--jumbo {
         background-image: url(/images/michail-sapiton-234263.jpg);
         background-size: cover;
+        background-position: center;
         background-repeat: no-repeat;
         background-color: #16151a;
         height: 600px;

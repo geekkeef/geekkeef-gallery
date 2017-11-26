@@ -2,10 +2,22 @@
  ================================================================ */
 
 .follow {
+    &__title--bar {
+        background-color: $bgColorDark;
+        border-radius: 3px;
+        padding: 14px 0 14px 20px;
+    }
     &__title {
         color: $mainPink;
+        font-size: 0.9rem;
         font-weight: 200;
         letter-spacing: 0.3rem;
+        a {
+            color: $mainPink;
+            &:hover {
+                color: #fff;
+            }
+        }
     }
     &__a {
         color: #fff;

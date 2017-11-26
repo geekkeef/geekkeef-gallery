@@ -3,9 +3,20 @@
 
 .welcome {
     margin-bottom: 25px;
+    &__title--bar {
+        background-color: $mainBlue;
+        border-radius: 3px;
+        padding: 13px 0 13px 20px;
+        margin-right: 4px;
+        + hr {
+            margin-bottom: 1px;
+        }
+    }
     &__title--h3 {
+        font-size: 0.9rem;
         font-weight: 200;
         letter-spacing: 0.3rem;
+        color: #fff;
     }
     &__img {
         &--controller {
