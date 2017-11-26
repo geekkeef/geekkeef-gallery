@@ -1,0 +1,58 @@
+/* Follow 
+ ================================================================ */
+
+.follow {
+    &__title {
+        color: $mainPink;
+    }
+    &__a {
+        color: #fff;
+        padding-left: 25px;
+        font-size: 0.85rem;
+        font-weight: 400;
+        @mixin mediaSmallMax {
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+    }
+    &__a--snapchat {
+        color: $bgColorDarker;
+    }
+    &--panel {
+        width: 100%;
+        margin: 0 auto;
+        border: none;
+        height: 50px;
+        padding-top: 15px;
+    }
+    &--panel--facebook {
+        background-color: #3B5998;
+    }
+    &--panel--google {
+        background-color: #EA4235;
+    }
+    &--panel--twitter {
+        background-color: #1DA1F2;
+    }
+    &--panel--instagram {
+        background-color: #E3415C;
+    }
+    &--panel--reddit {
+        background-color: #FF4500;
+    }
+    &--panel--tumblr {
+        background-color: #01273A;
+    }
+    &--panel--snapchat {
+        background-color: #FFFC00;
+    }
+    &--panel--github {
+        background-color: #323131;
+    }
+    &--panel--steam {
+        background-color: #171A21;
+    }
+    &--panel--flickr {
+        background-color: #0063DB;
+    }
+}

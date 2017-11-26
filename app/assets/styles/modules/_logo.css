@@ -1,0 +1,62 @@
+/* Logo 
+ ================================================================ */
+
+.logo {
+    text-align: center;
+    &--splash {
+        text-align: center;
+        padding-top: 20%;
+        text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1), 0px 18px 23px rgba(0, 0, 0, 0.1);
+        hr {
+            width: 400px;
+            border-top: 1px solid #f8f8f8;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            margin-top: 15px
+        }
+        h3 {
+            font-size: 1.3em;
+            margin-top: 12px;
+            font-weight: 200;
+        }
+        @mixin mediaMediumMax {
+            hr {
+                width: 230px;
+            }
+            h3 {
+                font-size: 1.15em;
+                margin-top: 12px;
+                font-weight: 200;
+            }
+        }
+    }
+    &__h1 {
+        font-weight: 700;
+        font-size: 4.5em;
+        letter-spacing: -0.25rem;
+        &--splash {
+            color: #fff;
+            font-size: 4.4em;
+        }
+        &--modal {
+            padding-bottom: 20px;
+            word-spacing: -1rem;
+            i {
+                margin-right: 12px;
+            }
+            @mixin mediaSmallMax {
+                font-size: 2.8rem;
+                letter-spacing: -0.1rem;
+                word-spacing: -0.9rem;
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    &__span {
+        color: $mainBlue;
+        font-size: 0.75em;
+        font-weight: 400;
+    }
+}

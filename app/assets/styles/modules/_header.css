@@ -1,0 +1,42 @@
+/* Header 
+ ================================================================ */
+
+.header {
+    margin-bottom: 25px;
+    &--panel {
+        height: 85px;
+        background: url(../../assets/images/benjamin-hung-340384.jpg);
+        background-size: cover;
+        margin-right: 4px;
+        color: #fff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        text-align: right;
+        padding-top: 12px;
+        @mixin mediaMediumMax {
+            text-align: center;
+            font-size: 1.3rem;
+        }
+        @mixin mediaSmallMax {
+            text-align: center;
+            font-size: 0.9rem;
+            height: 70px;
+            padding-top: 5px;
+        }
+    }
+    h1 {
+        @mixin mediaMediumMax {
+            padding-bottom: 35px;
+        }
+        @mixin mediaSmallMax {
+            font-size: 3.9rem;
+            text-align: center;
+        }
+    }
+    h3 {
+        font-weight: 200;
+    }
+    &--panel span {
+        color: $mainOrange;
+        font-weight: 700;
+    }
+}

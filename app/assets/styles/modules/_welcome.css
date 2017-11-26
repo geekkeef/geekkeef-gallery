@@ -1,0 +1,71 @@
+/* Welcome 
+ ================================================================ */
+
+.welcome {
+    margin-bottom: 25px;
+
+    &__img {
+        &--controller {
+            background-image: url(../../assets/images/ugur-akdemir-238673.jpg);
+            height: 480.5px;
+            margin-top: 4px;
+            @mixin mediaSmallMax {
+                height: 325px;
+            }
+        }
+        &__md--trooper {
+            background-image: url(../../assets/images/ciprian-boiciuc-193062.jpg);
+            height: 238px;
+            @mixin mediaSmallMax {
+                height: 160px;
+            }
+        }
+        &__md--pc {
+            background-image: url(../../assets/images/nordwood-themes-387855.jpg);
+            height: 238px;
+            @mixin mediaSmallMax {
+                height: 160px;
+            }
+        }
+        &__md--arcade {
+            background-image: url(../../assets/images/daniel-monteiro-416820.jpg);
+            height: 238px;
+            @mixin mediaSmallMax {
+                height: 160px;
+            }
+        }
+        &__md--booth {
+            background-image: url(../../assets/images/joel-muniz-394897.jpg);
+            height: 238px;
+            @mixin mediaSmallMax {
+                height: 160px;
+            }
+        }
+    }
+    &__desc {
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 70px;
+        position: relative;
+        top: 100%;
+        transform: translateY(-100%);
+        width: 100%;
+        text-align: left;
+        padding: 8px;
+        color: #fff;
+    }
+    &__desc--lg h2 {
+        font-size: 1.3rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    &__desc p {
+        font-size: 0.8rem;
+    }
+    &__desc--lg p {
+        font-size: 0.9rem;
+    }
+    &__desc h4 {
+        font-size: 0.9rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+}

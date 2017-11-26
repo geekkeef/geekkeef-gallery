@@ -1,0 +1,50 @@
+/* Modal 
+ ================================================================ */
+
+.modal {
+    position: fixed;
+    z-index: 5;
+    background-color: rgba(255, 255, 255, 0.95);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.2);
+    transition: all .3s ease-out;
+    &__logo {
+        margin-top: 17%;
+        padding: 0 15px;
+        @mixin mediaSmallMax {
+            margin-top: 25%;
+        }
+    }
+    &__description {
+        text-align: center;
+        font-size: 1.4rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        @mixin mediaSmallMax {
+            font-size: 1.2rem;
+        }
+    }
+    &__close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 2.2rem;
+        transform: scaleX(1.5);
+        transform-origin: 100% 0;
+        cursor: pointer;
+        color: $mainDarkOrange;
+        &:hover {
+            color: $mainPink;
+        }
+    }
+    &--visible {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,28 @@
+/* Social 
+ ================================================================ */
+
+.social {
+    position: relative;
+    text-align: right;
+    &__a {
+        color: #333;
+        padding-left: 8px;
+    }
+    &__a:hover {
+        color: $mainLightBlue;
+    }
+    &--modal {
+        text-align: center;
+        h1 a.social__a {
+            color: $mainOrange;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        h1 a.social__a:hover {
+            color: $mainDarkOrange;
+        }
+    }
+    @mixin mediaSmallMax {
+        padding-top: 5px;
+        text-align: center;
+    }
+}

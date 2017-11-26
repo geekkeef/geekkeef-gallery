@@ -1,0 +1,16 @@
+/* Info 
+ ================================================================ */
+
+#dateDisplay {
+    font-size: 0.8rem;
+}
+.info {
+    padding: 10px 0;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, .05);
+    background-color: $bgColorLight;
+    margin-bottom: 35px;
+    @mixin mediaSmallMax {
+        text-align: center;
+    }
+}

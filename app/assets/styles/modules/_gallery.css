@@ -1,0 +1,73 @@
+/* Gallery 
+ ================================================================ */
+
+.gallery {
+    @mixin mediaMediumMax {
+        div.panel:first-child {
+            padding-bottom: 25px;
+        }
+    }
+    &__title {
+        color: $mainPink;
+    }
+    &__lg--image {
+        background-image: url(../../assets/images/erik-lucatero-395688.jpg);
+        @mixin mediaSmallMax {
+            height: 400px;
+        }
+    }
+    &__image {
+        display: flex;
+        margin: 0 auto;
+        width: 100%;
+    }
+    &__desc {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        padding: 8px 0 3px 8px;
+        height: 75px;
+        @mixin mediaSmallMax {
+            border: 1px solid #bbb;
+            background-color: $mainPink;
+            text-align: center;
+        }
+    }
+    &__desc--lg {
+        color: #fff;
+    }
+    &__desc--lg p {
+        color: $mainYellow;
+        font-size: 1rem;
+        @mixin mediaSmallMax {
+            font-size: 1.2rem;
+        }
+    }
+    &__desc--lg h6 {
+        font-size: 0.7rem;
+    }
+    &__desc h6 {
+        color: $mainGrey;
+        @mixin mediaSmallMax {
+            color: $bgColorDark;
+        }
+    }
+    &__desc p {
+        color: $mainPink;
+        font-size: 0.8rem;
+        line-height: 20px;
+        @mixin mediaSmallMax {
+            color: #fff;
+            font-size: 1.2rem;
+            line-height: 35px;
+        }
+    }
+    &__hr {
+        display: none;
+        @mixin mediaSmallMax {
+            display: block;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+    }
+}

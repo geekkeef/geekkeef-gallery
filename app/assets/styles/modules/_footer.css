@@ -1,0 +1,44 @@
+/* Footer 
+ ================================================================ */
+
+.footer {
+    margin-top: 75px;
+    &--top {
+        background-color: $bgColorDark;
+        padding-top: 35px;
+        padding-bottom: 25px;
+        @mixin mediaMediumMax {
+            padding-top: 0;
+            padding-bottom: 65px;
+        }
+    }
+    &--top div.col--7 {
+        background-image: url(../../assets/images/jason-leung-370358.png);
+    }
+    &--bottom {
+        background-color: $bgColorDarker;
+    }
+    &--bottom .row {
+        padding: 10px 0;
+    }
+    &--bottom p {
+        color: $mainGrey;
+        font-size: .7rem;
+        line-height: 1.5rem;
+        @mixin mediaSmallMax {
+            font-size: .6rem;
+        }
+    }
+    &--bottom div.col--6--sm {
+        @mixin mediaSmallMax {
+            text-align: center;
+        }
+    }
+    &__logo {
+        display: block;
+        margin: 80px auto 50px;
+    }
+    &--social {
+        color: #fff;
+    }
+}
