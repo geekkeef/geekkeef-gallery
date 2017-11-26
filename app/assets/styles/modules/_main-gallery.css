@@ -15,6 +15,17 @@
         line-height: 1.3rem;
         margin-bottom: 70px;
     }
+    &__button {
+        text-align: center;
+        margin-bottom: 50px;
+        &--sm {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+    }
+    &__add {
+        margin-bottom: 50px;
+    }
     &--wide {
         .wrapper--image img {
             width: 100%;

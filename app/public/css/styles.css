@@ -1699,6 +1699,20 @@ li .nav--special {
         margin-bottom: 70px;
     }
 
+.main-gallery__button {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+.main-gallery__button--sm {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+
+.main-gallery__add {
+        margin-bottom: 50px;
+    }
+
 .main-gallery--wide .wrapper--image img {
             width: 100%;
             display: block;

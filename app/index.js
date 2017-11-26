@@ -1,17 +1,37 @@
 var express         = require('express'),
-    bodyParser      = require('body-parser');
+    bodyParser      = require('body-parser'),
+    mongoose        = require('mongoose');
 
 var app = express();
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/public'));
+mongoose.connect('mongodb://localhost/geek-gallery', { useMongoClient: true });
+mongoose.Promise = global.Promise;
 
-var photos = [
-    { name: "Storm Trooper", image: "http://geekkeef.com/assets/pix/ciprian-boiciuc-193062.jpg", description: "These aren't the droids you're looking for" },
-    { name: "PS Controller", image: "http://geekkeef.com/assets/pix/ugur-akdemir-238673.jpg", description: "Up, Down, Left, Right, B, A, START" },
-    { name: "Jumpman", image: "http://geekkeef.com/assets/pix/paul-volkmer-451300.jpg", description: "As you wish, Your Airness" }
-]
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'ejs');
+
+//Schema Setup
+var gallerySchema = new mongoose.Schema({
+    name: String,
+    image: String,
+    description: String
+});
+
+var Gallery = mongoose.model('Gallery', gallerySchema);
+
+// Gallery.create(
+//     {
+//         name: "Jumpman",
+//         image: "http://geekkeef.com/assets/pix/paul-volkmer-451300.jpg",
+//         description: "As you wish, Your Airness"
+//     }, function(err,photo){
+//         if(err){
+//             console.log(err);
+//         }else{
+//             console.log('NEWLY CREATED GALLERY')
+//         }
+// });
 
 app.get('/', function(req,res){
     res.render('landing');
@@ -22,7 +42,14 @@ app.get("/home", function (req, res) {
 });
 
 app.get('/gallery', function(req,res){
-    res.render('gallery', {galleryPhotos:photos});
+    Gallery.find({}, function(err,allPhotos){
+        if (err || !allPhotos) {
+            res.status(500).send({ error: 'Could not load photo(s)' });
+            console.log(err);
+        } else {
+            res.render('gallery', { photos: allPhotos });
+        }
+    });
 });
 
 app.post('/gallery', function(req,res){
@@ -31,15 +58,20 @@ app.post('/gallery', function(req,res){
     var description = req.body.description;
 
     var newPhoto = {name:name,image:image,description:description};
-    photos.push(newPhoto);
-
-    res.redirect('/gallery');
+    Gallery.create(newPhoto, function(err, newPhoto){
+        if(err){
+            res.status(500).send({ error: 'Could not add photo' });
+            console.log(err);
+        }else{
+            res.redirect('/gallery');
+        }
+    }); 
 });
 
 app.get('/gallery/new', function(req,res){
     res.render('new');
 });
 
-app.listen(8085, function(){
+app.listen(8090, function(){
     console.log('SERVER STARTED');
 });

@@ -1,8 +1,18 @@
 <% include partials/header %>
 
-<h1>Add a photo to gallery</h1>
+<div class="row main-gallery__add">
+    <div class="col--12">
+        <div class="gallery__title--bar">
+            <h3 class="gallery__title">
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                <a href="gallery.html">Add Photo</a>
+            </h3>
+        </div>
+    </div>
+</div>
 
-<form class="form--contact" action="/photos" method="POST">
+
+<form class="form--contact" action="/gallery" method="POST">
     <div class="form--group">
         <input type="text" class="form--control" id="name" name="name" placeholder="Name">
     </div>
@@ -15,6 +25,8 @@
     <button type="submit" class="btn btn--lg btn--blue">Add Photo</button>
 </form>
 
-<a href="/photos" class="btn btn--orange">Back</a>
+<div class="main-gallery__button main-gallery__button--sm">
+    <a href="/gallery" class="btn btn--orange">Back</a>
+</div>
 
 <% include partials/footer %>

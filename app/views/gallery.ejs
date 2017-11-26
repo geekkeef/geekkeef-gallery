@@ -26,6 +26,11 @@
                     sapien. Suspendisse et risus sed lacus vulputate faucibus ultrices sed elit.</p>
             </div>
         </div>
+        <div class="row">
+            <div class="col--12 main-gallery__button">
+                <a href="/gallery/new" type="submit" class="btn btn--lg btn--blue">Add Photo</a>
+            </div>
+        </div>
     </div>
 
 </div>
@@ -34,7 +39,7 @@
 <div class="container container--wide container--wide__gallery">
     <div class="main-gallery--wide">
         <div class="row">
-            <% galleryPhotos.forEach(function(photo){ %>
+            <% photos.forEach(function(photo){ %>
             
                 <div class="col--4 col--6--sm">   
                     <div class="overlay overlay--main-gallery">
