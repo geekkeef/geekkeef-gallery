@@ -21,11 +21,11 @@ app.get("/home", function (req, res) {
     res.render('home');
 });
 
-app.get('/photos', function(req,res){
-    res.render('photos', {galleryPhotos:photos});
+app.get('/gallery', function(req,res){
+    res.render('gallery', {galleryPhotos:photos});
 });
 
-app.post('/photos', function(req,res){
+app.post('/gallery', function(req,res){
     var name = req.body.name;
     var image = req.body.image;
     var description = req.body.description;
@@ -33,10 +33,10 @@ app.post('/photos', function(req,res){
     var newPhoto = {name:name,image:image,description:description};
     photos.push(newPhoto);
 
-    res.redirect('/photos');
+    res.redirect('/gallery');
 });
 
-app.get('/photos/new', function(req,res){
+app.get('/gallery/new', function(req,res){
     res.render('new');
 });
 

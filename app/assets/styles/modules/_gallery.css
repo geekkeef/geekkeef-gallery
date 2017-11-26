@@ -9,6 +9,8 @@
     }
     &__title {
         color: $mainPink;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
     }
     &__lg--image {
         background-image: url(/images/erik-lucatero-395688.jpg);

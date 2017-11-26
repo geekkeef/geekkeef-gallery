@@ -4,6 +4,8 @@
 .follow {
     &__title {
         color: $mainPink;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
     }
     &__a {
         color: #fff;

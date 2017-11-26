@@ -1,0 +1,73 @@
+/* Main Gallery 
+ ================================================================ */
+
+.main-gallery {
+    &__h3 {
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: $bgColorDarker;
+        margin-bottom: 15px;
+        margin-top: 60px;
+    }
+    p {
+        font-size: 0.8rem;
+        color: $mainLightGrey;
+        line-height: 1.3rem;
+        margin-bottom: 70px;
+    }
+    &--wide {
+        .wrapper--image img {
+            width: 100%;
+            display: block;
+        }
+        .col--4,
+        .col--6--sm {
+            padding: 0;
+            position: relative;
+        }
+        i {
+            color: #fff;
+            font-size: 3rem;
+            margin-bottom: 5px;
+        }
+        h3 {
+            font-weight: 200;
+            font-size: 1.2rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        p {
+            color: $mainGrey;
+        }
+    }
+    &--desc {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+    }
+    &--jumbo {
+        background-image: url(/images/michail-sapiton-234263.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-color: $bgColorDarker;
+        height: 600px;
+        border-top: 3px solid $mainPink;
+        margin-top: 5px;
+        background-repeat: none;
+    }
+    &__title-bar {
+        background-color: #000;
+        position: relative;
+        width: 45%;
+        height: 70px;
+        text-align: left;
+        padding: 25px 20px 8px 8px;
+        color: $mainPink;
+        top: 80%;
+        text-align: right;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        border-radius: 0 4px 4px 0;
+    }
+}

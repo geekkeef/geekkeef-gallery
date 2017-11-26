@@ -1,0 +1,57 @@
+<% include partials/header %>
+
+</div>
+<!-- container short -->
+
+<div class="container container--wide">
+    <div class="main-gallery--jumbo">
+        <div class="main-gallery__title-bar">
+            <i class="fa fa-picture-o" aria-hidden="true"></i> Gallery</div>
+    </div>
+</div>
+
+<div class="container container--short">
+
+    <div class="main-gallery">
+        <div class="row">
+            <div class="col--6 col--6--sm">
+                <h3 class="main-gallery__h3">Visuals</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus pellentesque aliquet. Nunc vel
+                    ante eu quam efficitur hendrerit et in augue. Aenean quam purus, convallis vitae auctor at, porta quis
+                    nisl.</p>
+            </div>
+            <div class="col--6 col--6--sm">
+                <h3 class="main-gallery__h3">Views</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at nibh id nulla tempor fermentum et condimentum
+                    sapien. Suspendisse et risus sed lacus vulputate faucibus ultrices sed elit.</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- container short -->
+
+<div class="container container--wide container--wide__gallery">
+    <div class="main-gallery--wide">
+        <div class="row">
+            <% galleryPhotos.forEach(function(photo){ %>
+            
+                <div class="col--4 col--6--sm">   
+                    <div class="overlay overlay--main-gallery">
+                        <div class="main-gallery--desc">
+                            <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                            <h3><%= photo.name %></h3>
+                            <p><%= photo.description %></p>
+                        </div>
+                    </div>
+                    <div class="wrapper wrapper--image">
+                        <img src="<%= photo.image %>">
+                    </div>
+                </div>
+
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>
