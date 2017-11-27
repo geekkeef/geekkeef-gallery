@@ -1,0 +1,30 @@
+/* Comment
+ ================================================================ */
+
+.comment {
+    width: 80%;
+    display: block;
+    margin: 35px auto;
+    background-color: $bgColorLight;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    div.col--10 {
+        padding-left: 15px;
+    }
+    div.row:nth-of-type(2n+2) {
+        background-color: #e2e2e2;
+    }
+    h4 {
+        margin-top: 8px;
+        color: $mainBlue;
+    }
+    p {
+        font-size: 0.95rem;
+        margin-top: 5px;
+    }
+    &__user-image {
+        margin-top: 3px;
+        display: block;
+        margin: auto;
+    }
+}

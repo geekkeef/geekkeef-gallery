@@ -23,6 +23,9 @@
         font-weight: 200;
         letter-spacing: 0.3rem;
         color: $mainPink;
+        &--comment {
+            color: #fff;
+        }
     }
     &__lg--image {
         background-image: url(/images/erik-lucatero-395688.jpg);

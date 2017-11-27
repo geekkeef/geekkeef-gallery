@@ -1263,6 +1263,10 @@ li .nav--special {
         color: #e3415c;
     }
 
+.gallery__title--comment {
+            color: #fff;
+        }
+
 .gallery__lg--image {
         background-image: url(/images/erik-lucatero-395688.jpg);
     }
@@ -1521,9 +1525,24 @@ li .nav--special {
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
 
+.btn--pink {
+        background-color: #e3415c;
+        color: #fff;
+    }
+
+.btn--pink:hover {
+            background-color: #bf243e;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
 .btn--lg {
         font-size: 1.1rem;
         padding: 8px 45px
+    }
+
+.btn--sm {
+        font-size: 1.1rem;
+        padding: 8px 25px
     }
 
 /* Footer 
@@ -1862,3 +1881,39 @@ li .nav--special {
             color: #7c7c7c;
             line-height: 1.4rem;
         }
+
+/* Comment
+ ================================================================ */
+
+.comment {
+    width: 80%;
+    display: block;
+    margin: 35px auto;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment div.col--10 {
+        padding-left: 15px;
+    }
+
+.comment div.row:nth-of-type(2n+2) {
+        background-color: #e2e2e2;
+    }
+
+.comment h4 {
+        margin-top: 8px;
+        color: #468284;
+    }
+
+.comment p {
+        font-size: 0.95rem;
+        margin-top: 5px;
+    }
+
+.comment__user-image {
+        margin-top: 3px;
+        display: block;
+        margin: auto;
+    }

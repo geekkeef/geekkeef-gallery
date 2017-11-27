@@ -2,13 +2,14 @@ var express         = require('express'),
     bodyParser      = require('body-parser'),
     mongoose        = require('mongoose'),
     Gallery         = require('./models/gallery'),
+    Comment         = require('./models/comment'),
     seedDB          = require('./seeds');
 
 var app = express();
 
 mongoose.connect('mongodb://localhost/geek-gallery', { useMongoClient: true });
 mongoose.Promise = global.Promise;
-seedDB();
+// seedDB();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
@@ -28,7 +29,7 @@ app.get('/gallery', function(req,res){
             res.status(500).send({ error: 'Could not load photo(s)' });
             console.log(err);
         } else {
-            res.render('gallery', { photos: allPhotos });
+            res.render('gallery/gallery', { photos: allPhotos });
         }
     });
 });
@@ -51,7 +52,7 @@ app.post('/gallery', function(req,res){
 });
 
 app.get('/gallery/new', function(req,res){
-    res.render('new');
+    res.render('gallery/new');
 });
 
 app.get('/gallery/:id', function(req,res){
@@ -61,10 +62,48 @@ app.get('/gallery/:id', function(req,res){
             console.log(err);
         }else{
             console.log(foundPhoto);
-            res.render('show', {photo:foundPhoto});
+            res.render('gallery/show', {photo:foundPhoto});
         }
     });
 });
+
+/* Comment Routes 
+===============================================================*/
+
+app.get('/gallery/:id/comments/new', function(req,res){
+    Gallery.findById(req.params.id, function(err, foundPhoto){
+        if(err){
+            res.status(500).send({ error: 'Could not load photo' });
+            console.log(err);
+        }else{
+            res.render('comments/new', {photo:foundPhoto});
+        }
+    });
+});
+
+app.post('/gallery/:id/comments', function(req,res){
+    Gallery.findById(req.params.id, function (err, foundPhoto){
+        if (err) {
+            res.status(500).send({ error: 'Could not load photo' });
+            console.log(err);
+            res.status(500).redirect('/gallery');
+        } else {
+            Comment.create(req.body.comment, function(err, createdComment){
+                if(err){
+                    res.status(500).send({ error: 'Could not create comment' });
+                    console.log(err);
+                }else{
+                    foundPhoto.comments.push(createdComment);
+                    foundPhoto.save();
+                    res.redirect('/gallery/' + foundPhoto._id);
+                }
+            });
+        }
+    });
+});
+
+/* Listen PORT
+===============================================================*/
 
 app.listen(8150, function(){
     console.log('SERVER STARTED');
