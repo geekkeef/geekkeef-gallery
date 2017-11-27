@@ -8,12 +8,18 @@
         color: $bgColorDarker;
         margin-bottom: 15px;
         margin-top: 60px;
+        @mixin mediaSmallMax {
+            margin-top: 40px;
+        }
     }
     p {
         font-size: 0.8rem;
         color: $mainLightGrey;
         line-height: 1.3rem;
         margin-bottom: 70px;
+        @mixin mediaSmallMax {
+            margin-bottom: 20px;
+        }
     }
     &__button {
         text-align: center;
@@ -67,6 +73,9 @@
         border-top: 3px solid $mainPink;
         margin-top: 5px;
         background-repeat: none;
+        @mixin mediaSmallMax {
+            margin-bottom: 15px;
+        }
     }
     &__title-bar {
         background-color: #000;

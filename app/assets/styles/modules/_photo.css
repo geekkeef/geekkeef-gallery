@@ -35,30 +35,55 @@
         color: $mainGrey;
         line-height: 1.4rem;
     }
+    &__p-top {
+        @mixin mediaSmallMax {
+            margin-bottom: 15px;
+        }
+    }
     &__desc {
         font-size: 1.2rem;
         color: $bgColorDark;
         line-height: 1.4rem;
         font-weight: 200;
         margin-top: 20px;
+        @mixin mediaSmallMax {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
     }
     &__title-bar {
-        background-color: #000;
-        width: 30%;
+        background-color: rgba(0, 0, 0, 0.5);
         height: 35px;
-        padding-top: 2px;
+        width: 45%;
+        max-width: 980px;
+        padding-top: 1px;
         padding-right: 10px;
         color: $mainPink;
         text-align: right;
         font-weight: 200;
         letter-spacing: 0.3rem;
         border-radius: 0 4px 4px 0;
-        margin-top: -115px;
+        margin-top: -65px;
         position: absolute;
+        word-wrap: break-word;
+        @mixin mediaMediumMax {
+            width: 65%;
+        }
+        @mixin mediaSmallMax {
+            width: 75%;
+            height: auto;
+        }
         i {
             font-size: 0.8rem;
-            color: $mainGrey;
             line-height: 1.4rem;
+            color: #fff;
+        }
+        p {
+            color: #fff;
+            height: 25px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, .08);
+            display: inline-block;
+            margin-bottom: 5px;
         }
     }
 }

@@ -4,7 +4,6 @@
 .modal {
     position: fixed;
     z-index: 5;
-    background-color: rgba(255, 255, 255, 0.95);
     top: 0;
     bottom: 0;
     left: 0;
@@ -13,11 +12,37 @@
     visibility: hidden;
     transform: scale(1.2);
     transition: all .3s ease-out;
-    &__logo {
-        margin-top: 17%;
-        padding: 0 15px;
+    form {
+        text-align: center;
+    }
+    &--panel {
+        margin-top: 47%;
+        background-color: #fff;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .09);
+        .btn {
+            margin-bottom: 30px;
+        }
         @mixin mediaSmallMax {
-            margin-top: 25%;
+            margin-top: 50%;
+        }
+    }
+    &--social {
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+    &--login {
+        background-color: rgba($mainBlue, 0.95);
+    }
+    &--register {
+        background-color: rgba($mainOrange, 0.95);
+    }
+    &__logo {
+        margin-top: 12%;
+        padding: 0 15px;
+        @mixin mediaMediumMax {
+            margin-top: 20%;
+        }
+        @mixin mediaSmallMax {
+            margin-top: 45%;
         }
     }
     &__description {

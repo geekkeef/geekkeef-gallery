@@ -66,7 +66,8 @@
 </div>
 <!-- container wide -->
 
-<div class="modal">
+<!-- modal social -->
+<div class="modal modal--social">
     <div class="logo modal__logo">
         <h1 class="logo__h1 logo__h1--modal">
             <span class="logo__span">
@@ -100,6 +101,54 @@
         </div>
     </div>
     <div class="modal__close">X</div>
+</div>
+
+<!-- modal login -->
+<div class="modal modal--login">
+    <div class="wrapper wrapper--narrow">
+        <div class="panel modal--panel">
+            <div class="logo modal__logo">
+                <h1 class="logo__h1 logo__h1--modal">
+                    <span class="logo__span">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i> Login</span></h1>
+            </div>
+            <form>
+                <div class="form--group">
+                    <input type="text" class="form--control" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="form--group">
+                    <input type="text" class="form--control" id="password" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn--lg btn--orange">Login</button>
+            </form>
+            
+        </div>
+    </div>
+        <div class="modal__close">X</div>
+</div>
+
+<!-- modal register -->
+<div class="modal modal--register">
+    <div class="wrapper wrapper--narrow">
+        <div class="panel modal--panel">
+            <div class="logo modal__logo">
+                <h1 class="logo__h1 logo__h1--modal">
+                    <span class="logo__span">
+                        <i class="fa fa-share" aria-hidden="true"></i> Register</span></h1>
+            </div>
+            <form>
+                <div class="form--group">
+                    <input type="text" class="form--control" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="form--group">
+                    <input type="text" class="form--control" id="password" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn--lg btn--blue">Sign Up</button>
+            </form>
+            
+        </div>
+    </div>
+        <div class="modal__close">X</div>
 </div>
 
 <script type="text/javascript" src="../../../scripts/app.js"></script>

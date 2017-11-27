@@ -1,19 +1,40 @@
 var express         = require('express'),
     bodyParser      = require('body-parser'),
     mongoose        = require('mongoose'),
+    passport        = require('passport'),
+    LocalStrategy   = require('passport-local'),
     Gallery         = require('./models/gallery'),
     Comment         = require('./models/comment'),
+    User            = require('./models/user'),
     seedDB          = require('./seeds');
 
 var app = express();
 
 mongoose.connect('mongodb://localhost/geek-gallery', { useMongoClient: true });
 mongoose.Promise = global.Promise;
-// seedDB();
+seedDB();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
+
+// Passport Config
+app.use(require('express-session')({
+    secret: 'Goonies never say die!!!',
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//============================================================//
+
+/* Routes 
+===============================================================*/
 
 app.get('/', function(req,res){
     res.render('landing');
@@ -26,7 +47,6 @@ app.get("/home", function (req, res) {
 app.get('/gallery', function(req,res){
     Gallery.find({}, function(err,allPhotos){
         if (err || !allPhotos) {
-            res.status(500).send({ error: 'Could not load photo(s)' });
             console.log(err);
         } else {
             res.render('gallery/gallery', { photos: allPhotos });
@@ -43,7 +63,6 @@ app.post('/gallery', function(req,res){
     var newPhoto = {name:name,image:image,description:description,photographer:photographer};
     Gallery.create(newPhoto, function(err, newPhoto){
         if(err){
-            res.status(500).send({ error: 'Could not add photo' });
             console.log(err);
         }else{
             res.redirect('/gallery');
@@ -58,10 +77,8 @@ app.get('/gallery/new', function(req,res){
 app.get('/gallery/:id', function(req,res){
     Gallery.findById(req.params.id).populate('comments').exec(function(err, foundPhoto){
         if(err || !foundPhoto || !req.params.id){
-            res.status(500).send({ error: 'Could not load photo' });
             console.log(err);
         }else{
-            console.log(foundPhoto);
             res.render('gallery/show', {photo:foundPhoto});
         }
     });
@@ -73,7 +90,6 @@ app.get('/gallery/:id', function(req,res){
 app.get('/gallery/:id/comments/new', function(req,res){
     Gallery.findById(req.params.id, function(err, foundPhoto){
         if(err){
-            res.status(500).send({ error: 'Could not load photo' });
             console.log(err);
         }else{
             res.render('comments/new', {photo:foundPhoto});
@@ -84,13 +100,11 @@ app.get('/gallery/:id/comments/new', function(req,res){
 app.post('/gallery/:id/comments', function(req,res){
     Gallery.findById(req.params.id, function (err, foundPhoto){
         if (err) {
-            res.status(500).send({ error: 'Could not load photo' });
             console.log(err);
             res.status(500).redirect('/gallery');
         } else {
             Comment.create(req.body.comment, function(err, createdComment){
                 if(err){
-                    res.status(500).send({ error: 'Could not create comment' });
                     console.log(err);
                 }else{
                     foundPhoto.comments.push(createdComment);
@@ -102,9 +116,15 @@ app.post('/gallery/:id/comments', function(req,res){
     });
 });
 
+/* Auth Routes 
+===============================================================*/
+
+// app.get();
+
+
 /* Listen PORT
 ===============================================================*/
 
-app.listen(8150, function(){
+app.listen(4001, function(){
     console.log('SERVER STARTED');
 });

@@ -39,6 +39,7 @@
             font-size: 4.4em;
         }
         &--modal {
+            padding-top: 20px;
             padding-bottom: 20px;
             word-spacing: -1rem;
             i {
@@ -46,7 +47,7 @@
             }
             @mixin mediaSmallMax {
                 font-size: 2.8rem;
-                letter-spacing: -0.1rem;
+                letter-spacing: 0rem;
                 word-spacing: -0.9rem;
                 i {
                     margin-right: 10px;

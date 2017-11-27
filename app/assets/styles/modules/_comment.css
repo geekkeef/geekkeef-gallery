@@ -4,18 +4,36 @@
 .comment {
     width: 80%;
     display: block;
-    margin: 35px auto;
+    margin: 10px auto;
     background-color: $bgColorLight;
     border: 1px solid #ccc;
     border-radius: 5px;
-    div.col--10 {
+    &__title {
+        text-align: center;
+    }
+    &__title--h3 {
+        padding-top: 35px;
+        font-size: 1.4rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: $mainBlue;
+        margin-bottom: 10px;
+    }
+    &__image {
+        @mixin mediaSmallMax {}
+    }
+    &__text {
         padding-left: 15px;
+        @mixin mediaSmallMax {
+            text-align: center;
+            padding: 0 20px 20px
+        }
     }
     div.row:nth-of-type(2n+2) {
         background-color: #e2e2e2;
     }
     h4 {
-        margin-top: 8px;
+        margin-top: 12px;
         color: $mainBlue;
     }
     p {
@@ -26,5 +44,15 @@
         margin-top: 3px;
         display: block;
         margin: auto;
+        @mixin mediaSmallMax {
+            padding-top: 10px;
+        }
+    }
+    &__button {
+        text-align: center;
+        &--sm {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
     }
 }

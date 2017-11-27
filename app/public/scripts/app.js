@@ -10095,7 +10095,11 @@ var Modal = function () {
         _classCallCheck(this, Modal);
 
         this.openModalClick = (0, _jquery2.default)('.open-modal');
-        this.modal = (0, _jquery2.default)('.modal');
+        this.openLoginClick = (0, _jquery2.default)('.open-login-modal');
+        this.openRegClick = (0, _jquery2.default)('.open-reg-modal');
+        this.modalSocial = (0, _jquery2.default)('.modal--social');
+        this.modalLogin = (0, _jquery2.default)('.modal--login');
+        this.modalReg = (0, _jquery2.default)('.modal--register');
         this.closeModalClick = (0, _jquery2.default)('.modal__close');
         this.events();
     }
@@ -10103,7 +10107,9 @@ var Modal = function () {
     _createClass(Modal, [{
         key: 'events',
         value: function events() {
-            this.openModalClick.click(this.openModal.bind(this));
+            this.openModalClick.click(this.openSocialModal.bind(this));
+            this.openLoginClick.click(this.openLoginModal.bind(this));
+            this.openRegClick.click(this.openRegModal.bind(this));
             this.closeModalClick.click(this.closeModal.bind(this));
             (0, _jquery2.default)(document).keyup(this.keyPressHandler.bind(this));
         }
@@ -10115,15 +10121,29 @@ var Modal = function () {
             }
         }
     }, {
-        key: 'openModal',
-        value: function openModal() {
-            this.modal.addClass('modal--visible');
+        key: 'openSocialModal',
+        value: function openSocialModal() {
+            this.modalSocial.addClass('modal--visible');
             return false; // prevent default scroll up functionality in browser fomr '#' link
+        }
+    }, {
+        key: 'openLoginModal',
+        value: function openLoginModal() {
+            this.modalLogin.addClass('modal--visible');
+            return false;
+        }
+    }, {
+        key: 'openRegModal',
+        value: function openRegModal() {
+            this.modalReg.addClass('modal--visible');
+            return false;
         }
     }, {
         key: 'closeModal',
         value: function closeModal() {
-            this.modal.removeClass('modal--visible'); // remove modal class
+            this.modalSocial.removeClass('modal--visible'); // remove modal class
+            this.modalLogin.removeClass('modal--visible');
+            this.modalReg.removeClass('modal--visible');
         }
     }]);
 

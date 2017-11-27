@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col--6 col--6--sm">
+            <div class="photo__p-top col--6 col--6--sm">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consequat finibus dui eu ultricies. Quisque tincidunt ligula sit amet tellus ultricies, quis vehicula risus feugiat. In malesuada, est vel placerat cursus, felis nunc volutpat tortor, convallis tincidunt velit lacus eu dui. Duis posuere ante at ligula commodo, et sagittis purus consectetur. </p>
             </div>
             <div class="col--6 col--6--sm">
@@ -48,27 +48,42 @@
         </div>
     </div>
 
+<div class="row">
+    <div class="col--12">
+        <div class="comment__title">
+            <h3 class="comment__title--h3">
+                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                Comments
+            </h3>
+            <div class="col--12 comment__button">
+                <a href="/gallery/<%= photo._id %>/comments/new" type="submit" class="btn btn--blue">Add Comment</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col--12">
+        <div class="comment">
+            <% photo.comments.forEach(function(comment){ %>
+                <div class="row">
+                    <div class="comment__image col--2 col--2--sm">
+                        <img class="comment__user-image" srcset="/images/comment_icon_001.png">
+                    </div>
+                    <div class="comment__text col--10 col--10--sm">
+                        <h4>
+                            <%= comment.author %>
+                        </h4>
+                        <p>
+                            <%= comment.text %>
+                        </p>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+    </div>
+</div>
     
-    <div class="comment">
-        <% photo.comments.forEach(function(comment){ %>
-        <div class="row">
-            <div class="col--2 col--2--sm">
-                <img class="comment__user-image" srcset="/images/comment_icon_001.png">
-            </div>
-            <div class="col--10 col--10--sm">
-                <h4><%= comment.author %></h4>
-                <p><%= comment.text %></p>
-            </div>
-        </div>
-         <% }); %>
-    </div>
-
-    <div class="row">
-        <div class="col--12 main-gallery__button">
-            <a href="/gallery/<%= photo._id %>/comments/new" type="submit" class="btn btn--blue">Add Comment</a>
-        </div>
-    </div>
-
-
+    
+    
 
 <% include ../partials/footer %>

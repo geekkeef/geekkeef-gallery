@@ -528,8 +528,6 @@ html,
     }
 
 .panel {
-        border-color: #ddd;
-        border: 1px solid transparent;
         border-radius: 4px;
         -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
                 box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
@@ -617,6 +615,15 @@ html,
 
 .col--2 {
         width: 16.66%;
+    }
+
+@media only screen and (max-width: 767px) {
+
+.col--2--sm {
+                display: block;
+                float: none;
+                width: 100%
+        }
     }
 
 .col--3 {
@@ -712,6 +719,15 @@ html,
 
 .col--10 {
         width: 83.33%;
+    }
+
+@media only screen and (max-width: 767px) {
+
+.col--10--sm {
+                display: block;
+                float: none;
+                width: 100%
+        }
     }
 
 .col--11 {
@@ -1014,6 +1030,7 @@ li .nav--special {
         }
 
 .logo__h1--modal {
+            padding-top: 20px;
             padding-bottom: 20px;
             word-spacing: -1rem;
         }
@@ -1026,7 +1043,7 @@ li .nav--special {
 
 .logo__h1--modal {
                 font-size: 2.8rem;
-                letter-spacing: -0.1rem;
+                letter-spacing: 0rem;
                 word-spacing: -0.9rem
         }
                 .logo__h1--modal i {
@@ -1652,7 +1669,6 @@ li .nav--special {
 .modal {
     position: fixed;
     z-index: 5;
-    background-color: rgba(255, 255, 255, 0.95);
     top: 0;
     bottom: 0;
     left: 0;
@@ -1665,15 +1681,56 @@ li .nav--special {
     transition: all .3s ease-out;
 }
 
+.modal form {
+        text-align: center;
+    }
+
+.modal--panel {
+        margin-top: 47%;
+        background-color: #fff;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .09);
+                box-shadow: 0 1px 1px rgba(0, 0, 0, .09);
+    }
+
+.modal--panel .btn {
+            margin-bottom: 30px;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.modal--panel {
+            margin-top: 50%
+    }
+    }
+
+.modal--social {
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+
+.modal--login {
+        background-color: rgba(70,130,132, 0.95);
+    }
+
+.modal--register {
+        background-color: rgba(252,176,0, 0.95);
+    }
+
 .modal__logo {
-        margin-top: 17%;
+        margin-top: 12%;
         padding: 0 15px;
+    }
+
+@media only screen and (max-width: 992px) {
+
+.modal__logo {
+            margin-top: 20%
+    }
     }
 
 @media only screen and (max-width: 767px) {
 
 .modal__logo {
-            margin-top: 25%
+            margin-top: 45%
     }
     }
 
@@ -1726,11 +1783,25 @@ li .nav--special {
         margin-top: 60px;
     }
 
+@media only screen and (max-width: 767px) {
+
+.main-gallery__h3 {
+            margin-top: 40px
+    }
+    }
+
 .main-gallery p {
         font-size: 0.8rem;
         color: #8e9298;
         line-height: 1.3rem;
         margin-bottom: 70px;
+    }
+
+@media only screen and (max-width: 767px) {
+
+.main-gallery p {
+            margin-bottom: 20px
+    }
     }
 
 .main-gallery__button {
@@ -1795,6 +1866,13 @@ li .nav--special {
         background-repeat: none;
     }
 
+@media only screen and (max-width: 767px) {
+
+.main-gallery--jumbo {
+            margin-bottom: 15px
+    }
+    }
+
 .main-gallery__title-bar {
         background-color: #000;
         position: relative;
@@ -1853,6 +1931,13 @@ li .nav--special {
         line-height: 1.4rem;
     }
 
+@media only screen and (max-width: 767px) {
+
+.photo__p-top {
+            margin-bottom: 15px
+    }
+    }
+
 .photo__desc {
         font-size: 1.2rem;
         color: #1F2024;
@@ -1861,25 +1946,58 @@ li .nav--special {
         margin-top: 20px;
     }
 
+@media only screen and (max-width: 767px) {
+
+.photo__desc {
+            margin-top: 40px;
+            margin-bottom: 20px
+    }
+    }
+
 .photo__title-bar {
-        background-color: #000;
-        width: 30%;
+        background-color: rgba(0, 0, 0, 0.5);
         height: 35px;
-        padding-top: 2px;
+        width: 45%;
+        max-width: 980px;
+        padding-top: 1px;
         padding-right: 10px;
         color: #e3415c;
         text-align: right;
         font-weight: 200;
         letter-spacing: 0.3rem;
         border-radius: 0 4px 4px 0;
-        margin-top: -115px;
+        margin-top: -65px;
         position: absolute;
+        word-wrap: break-word;
+    }
+
+@media only screen and (max-width: 992px) {
+
+.photo__title-bar {
+            width: 65%
+    }
+    }
+
+@media only screen and (max-width: 767px) {
+
+.photo__title-bar {
+            width: 75%;
+            height: auto
+    }
     }
 
 .photo__title-bar i {
             font-size: 0.8rem;
-            color: #7c7c7c;
             line-height: 1.4rem;
+            color: #fff;
+        }
+
+.photo__title-bar p {
+            color: #fff;
+            height: 25px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, .08);
+            display: inline-block;
+            margin-bottom: 5px;
         }
 
 /* Comment
@@ -1888,14 +2006,38 @@ li .nav--special {
 .comment {
     width: 80%;
     display: block;
-    margin: 35px auto;
+    margin: 10px auto;
     background-color: #f7f7f7;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.comment div.col--10 {
+.comment__title {
+        text-align: center;
+    }
+
+.comment__title--h3 {
+        padding-top: 35px;
+        font-size: 1.4rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: #468284;
+        margin-bottom: 10px;
+    }
+
+@media only screen and (max-width: 767px) {
+    }
+
+.comment__text {
         padding-left: 15px;
+    }
+
+@media only screen and (max-width: 767px) {
+
+.comment__text {
+            text-align: center;
+            padding: 0 20px 20px
+    }
     }
 
 .comment div.row:nth-of-type(2n+2) {
@@ -1903,7 +2045,7 @@ li .nav--special {
     }
 
 .comment h4 {
-        margin-top: 8px;
+        margin-top: 12px;
         color: #468284;
     }
 
@@ -1917,3 +2059,19 @@ li .nav--special {
         display: block;
         margin: auto;
     }
+
+@media only screen and (max-width: 767px) {
+
+.comment__user-image {
+            padding-top: 10px
+    }
+    }
+
+.comment__button {
+        text-align: center;
+    }
+
+.comment__button--sm {
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
