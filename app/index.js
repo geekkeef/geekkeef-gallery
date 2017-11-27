@@ -6,9 +6,9 @@ var express         = require('express'),
 
 var app = express();
 
-seedDB();
 mongoose.connect('mongodb://localhost/geek-gallery', { useMongoClient: true });
 mongoose.Promise = global.Promise;
+seedDB();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
@@ -66,6 +66,6 @@ app.get('/gallery/:id', function(req,res){
     });
 });
 
-app.listen(8020, function(){
+app.listen(8150, function(){
     console.log('SERVER STARTED');
 });

@@ -2,14 +2,27 @@
  ================================================================ */
 
 .welcome {
+    border-top: 3px solid $mainPink;
+    border-bottom: 3px solid $bgColorDarker;
     margin-bottom: 25px;
+    .row {
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    [class*="col--"] {
+        padding: 0;
+    }
+    .thumbnail {
+        border-radius: 0;
+        border: none;
+    }
     &__title--bar {
         background-color: $mainBlue;
         border-radius: 3px;
         padding: 13px 0 13px 20px;
         margin-right: 4px;
-        + hr {
-            margin-bottom: 1px;
+        +hr {
+            margin-bottom: 30px;
         }
     }
     &__title--h3 {
@@ -21,8 +34,7 @@
     &__img {
         &--controller {
             background-image: url(/images/ugur-akdemir-238673.jpg);
-            height: 480.5px;
-            margin-top: 4px;
+            height: 476px;
             @mixin mediaSmallMax {
                 height: 325px;
             }
@@ -65,7 +77,7 @@
         transform: translateY(-100%);
         width: 100%;
         text-align: left;
-        padding: 8px;
+        padding: 12px 5px 5px 15px;
         color: #fff;
     }
     &__desc--lg h2 {

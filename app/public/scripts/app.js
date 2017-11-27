@@ -9918,11 +9918,25 @@ var _modal = __webpack_require__(5);
 
 var _modal2 = _interopRequireDefault(_modal);
 
+var _bkgImage = __webpack_require__(6);
+
+var _bkgImage2 = _interopRequireDefault(_bkgImage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _mobileMenu2.default();
 var dateDisplay = new _dateDisplay2.default();
 var modal = new _modal2.default();
+checkPage();
+function checkPage() {
+    var pathName = window.location.pathname;
+    if (pathName.startsWith('/gallery')) {
+        var urlEnd = pathName.substr(pathName.lastIndexOf('y') + 2);
+        if (urlEnd) {
+            var bkgImage = new _bkgImage2.default();
+        }
+    }
+}
 
 /***/ }),
 /* 2 */
@@ -10117,6 +10131,48 @@ var Modal = function () {
 }();
 
 exports.default = Modal;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var BkgImage = function () {
+    function BkgImage() {
+        _classCallCheck(this, BkgImage);
+
+        this.imageSrc = (0, _jquery2.default)('#photo__main').attr('src');
+        this.imageDiv = (0, _jquery2.default)('#photo__bkg');
+        this.events();
+    }
+
+    _createClass(BkgImage, [{
+        key: 'events',
+        value: function events() {
+            this.imageDiv.css('background', 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("' + this.imageSrc + '") no-repeat center / 100% fixed');
+        }
+    }]);
+
+    return BkgImage;
+}();
+
+exports.default = BkgImage;
 
 /***/ })
 /******/ ]);

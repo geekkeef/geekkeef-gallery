@@ -12,13 +12,13 @@
     </div>
 </div> <!-- container short -->
 
-<div class="container container--wide photo__container--wide">
+<div id="photo__bkg" class="container container--wide">
     <div class="container container--short">
         <div class="photo">
             <div class="row">
                 <div class="col--12">
                     <div class="photo__image">
-                        <img src="<%= photo.image %>">
+                        <img id="photo__main" src="<%= photo.image %>">
                     </div>
                     <div class="photo__title-bar">
                         <p><i class="fa fa-camera" aria-hidden="true"></i>: <%= photo.photographer %></p>
@@ -56,13 +56,12 @@
                 <img style="margin-top: 3px; display: block; margin: auto;" class="comment__image" srcset="/images/comment_icon_001.png">
             </div>
             <div class="col--10 col--10--sm" style="padding-left: 15px; background-color: #e2e2e2;">
-                <h4 style="margin-top: 8px;"><%= comment.author %></h4>
+                <h4 style="margin-top: 8px; color: #468284;"><%= comment.author %></h4>
                 <p style="margin-top: 3px;"><%= comment.text %></p>
             </div>
         </div>
          <% }); %>
     </div>
-
 
 
 

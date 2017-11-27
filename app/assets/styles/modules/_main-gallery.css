@@ -72,9 +72,9 @@
         background-color: #000;
         position: relative;
         width: 45%;
-        height: 70px;
+        height: 35px;
         text-align: left;
-        padding: 25px 20px 8px 8px;
+        padding: 8px 20px 8px 8px;
         color: $mainPink;
         top: 80%;
         text-align: right;
