@@ -20,6 +20,9 @@
                     <div class="photo__image">
                         <img src="<%= photo.image %>">
                     </div>
+                    <div class="photo__title-bar">
+                        <p><i class="fa fa-camera" aria-hidden="true"></i>: <%= photo.photographer %></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -44,6 +47,22 @@
             </div>
         </div>
     </div>
+
+    
+    <div class="comment" style="width: 70%; display: block; margin: 35px auto; background-color: #f7f7f7; border: 1px solid #ccc; border-radius: 5px;">
+        <% photo.comments.forEach(function(comment){ %>
+        <div class="row">
+            <div class="col--2 col--2--sm">
+                <img style="margin-top: 3px; display: block; margin: auto;" class="comment__image" srcset="/images/comment_icon_001.png">
+            </div>
+            <div class="col--10 col--10--sm" style="padding-left: 15px; background-color: #e2e2e2;">
+                <h4 style="margin-top: 8px;"><%= comment.author %></h4>
+                <p style="margin-top: 3px;"><%= comment.text %></p>
+            </div>
+        </div>
+         <% }); %>
+    </div>
+
 
 
 

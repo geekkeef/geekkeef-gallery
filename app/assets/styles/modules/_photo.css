@@ -4,7 +4,7 @@
 .photo {
     padding: 10px 0;
     &__container--wide {
-        background-color: $bgColorDark;
+        background-color: #000;
     }
     &__title {
         text-align: center;
@@ -43,5 +43,24 @@
         line-height: 1.4rem;
         font-weight: 200;
         margin-top: 20px;
+    }
+    &__title-bar {
+        background-color: #000;
+        width: 30%;
+        height: 35px;
+        padding-top: 2px;
+        padding-right: 10px;
+        color: $mainPink;
+        text-align: right;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        border-radius: 0 4px 4px 0;
+        margin-top: -115px;
+        position: absolute;
+        i {
+            font-size: 0.8rem;
+            color: $mainGrey;
+            line-height: 1.4rem;
+        }
     }
 }

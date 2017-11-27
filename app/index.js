@@ -1,37 +1,18 @@
 var express         = require('express'),
     bodyParser      = require('body-parser'),
-    mongoose        = require('mongoose');
+    mongoose        = require('mongoose'),
+    Gallery         = require('./models/gallery'),
+    seedDB          = require('./seeds');
 
 var app = express();
 
+seedDB();
 mongoose.connect('mongodb://localhost/geek-gallery', { useMongoClient: true });
 mongoose.Promise = global.Promise;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
-
-//Schema Setup
-var gallerySchema = new mongoose.Schema({
-    name: String,
-    image: String,
-    description: String
-});
-
-var Gallery = mongoose.model('Gallery', gallerySchema);
-
-// Gallery.create(
-//     {
-//         name: "Jumpman",
-//         image: "http://geekkeef.com/assets/pix/paul-volkmer-451300.jpg",
-//         description: "As you wish, Your Airness"
-//     }, function(err,photo){
-//         if(err){
-//             console.log(err);
-//         }else{
-//             console.log('NEWLY CREATED GALLERY')
-//         }
-// });
 
 app.get('/', function(req,res){
     res.render('landing');
@@ -56,8 +37,9 @@ app.post('/gallery', function(req,res){
     var name = req.body.name;
     var image = req.body.image;
     var description = req.body.description;
+    var photographer = req.body.photographer;
 
-    var newPhoto = {name:name,image:image,description:description};
+    var newPhoto = {name:name,image:image,description:description,photographer:photographer};
     Gallery.create(newPhoto, function(err, newPhoto){
         if(err){
             res.status(500).send({ error: 'Could not add photo' });
@@ -73,16 +55,17 @@ app.get('/gallery/new', function(req,res){
 });
 
 app.get('/gallery/:id', function(req,res){
-    Gallery.findById(req.params.id, function(err, foundPhoto){
+    Gallery.findById(req.params.id).populate('comments').exec(function(err, foundPhoto){
         if(err || !foundPhoto || !req.params.id){
             res.status(500).send({ error: 'Could not load photo' });
             console.log(err);
         }else{
+            console.log(foundPhoto);
             res.render('show', {photo:foundPhoto});
         }
     });
 });
 
-app.listen(8090, function(){
+app.listen(8020, function(){
     console.log('SERVER STARTED');
 });

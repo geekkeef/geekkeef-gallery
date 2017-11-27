@@ -1784,7 +1784,7 @@ li .nav--special {
 }
 
 .photo__container--wide {
-        background-color: #1F2024;
+        background-color: #000;
     }
 
 .photo__title {
@@ -1829,3 +1829,24 @@ li .nav--special {
         font-weight: 200;
         margin-top: 20px;
     }
+
+.photo__title-bar {
+        background-color: #000;
+        width: 30%;
+        height: 35px;
+        padding-top: 2px;
+        padding-right: 10px;
+        color: #e3415c;
+        text-align: right;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        border-radius: 0 4px 4px 0;
+        margin-top: -115px;
+        position: absolute;
+    }
+
+.photo__title-bar i {
+            font-size: 0.8rem;
+            color: #7c7c7c;
+            line-height: 1.4rem;
+        }
