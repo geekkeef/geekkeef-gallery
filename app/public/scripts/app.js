@@ -10099,7 +10099,7 @@ var Modal = function () {
         this.openRegClick = (0, _jquery2.default)('.open-reg-modal');
         this.modalSocial = (0, _jquery2.default)('.modal--social');
         this.modalLogin = (0, _jquery2.default)('.modal--login');
-        this.modalReg = (0, _jquery2.default)('.modal--register');
+        this.modalReg = (0, _jquery2.default)('.modal--reg');
         this.closeModalClick = (0, _jquery2.default)('.modal__close');
         this.events();
     }
@@ -10124,26 +10124,36 @@ var Modal = function () {
         key: 'openSocialModal',
         value: function openSocialModal() {
             this.modalSocial.addClass('modal--visible');
+            this.closeModalClick.addClass('modal__close--visible');
+            this.modalSocial.html('<object width="100%" height="100%" type="text/html" data="http://localhost:4001/social"></object>');
             return false; // prevent default scroll up functionality in browser fomr '#' link
         }
     }, {
         key: 'openLoginModal',
         value: function openLoginModal() {
             this.modalLogin.addClass('modal--visible');
+            this.closeModalClick.addClass('modal__close--visible');
+            this.modalLogin.html('<object width="100%" height="100%" type="text/html" data="http://localhost:4001/login"></object>');
             return false;
         }
     }, {
         key: 'openRegModal',
         value: function openRegModal() {
             this.modalReg.addClass('modal--visible');
+            this.closeModalClick.addClass('modal__close--visible');
+            this.modalReg.html('<object width="100%" height="100%" type="text/html" data="http://localhost:4001/register"></object>');
             return false;
         }
     }, {
         key: 'closeModal',
         value: function closeModal() {
+            this.closeModalClick.removeClass('modal__close--visible');
             this.modalSocial.removeClass('modal--visible'); // remove modal class
             this.modalLogin.removeClass('modal--visible');
             this.modalReg.removeClass('modal--visible');
+            this.modalSocial.html('');
+            this.modalLogin.html('');
+            this.modalReg.html('');
         }
     }]);
 

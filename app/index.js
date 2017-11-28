@@ -44,6 +44,10 @@ app.get("/home", function (req, res) {
     res.render('home');
 });
 
+app.get("/social", function (req, res) {
+    res.render('social');
+});
+
 app.get('/gallery', function(req,res){
     Gallery.find({}, function(err,allPhotos){
         if (err || !allPhotos) {
@@ -119,7 +123,13 @@ app.post('/gallery/:id/comments', function(req,res){
 /* Auth Routes 
 ===============================================================*/
 
-// app.get();
+app.get('/register', function(req,res){
+    res.render('register');
+});
+
+app.get('/login', function (req, res) {
+    res.render('login');
+});
 
 
 /* Listen PORT

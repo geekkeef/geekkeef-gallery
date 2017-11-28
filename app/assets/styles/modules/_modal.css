@@ -12,15 +12,23 @@
     visibility: hidden;
     transform: scale(1.2);
     transition: all .3s ease-out;
-    form {
-        text-align: center;
+    &--visible {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+        margin: 0 auto;
     }
     &--panel {
-        margin-top: 47%;
         background-color: #fff;
         box-shadow: 0 1px 1px rgba(0, 0, 0, .09);
+        max-width: 450px;
+        margin: 12% auto 0;
+        border-radius: 5px;
         .btn {
             margin-bottom: 30px;
+        }
+        form {
+            text-align: center;
         }
         @mixin mediaSmallMax {
             margin-top: 50%;
@@ -32,7 +40,7 @@
     &--login {
         background-color: rgba($mainBlue, 0.95);
     }
-    &--register {
+    &--reg {
         background-color: rgba($mainOrange, 0.95);
     }
     &__logo {
@@ -62,14 +70,19 @@
         transform: scaleX(1.5);
         transform-origin: 100% 0;
         cursor: pointer;
+        z-index: 10;
         color: $mainDarkOrange;
+        opacity: 0;
+        visibility: hidden;
         &:hover {
             color: $mainPink;
         }
-    }
-    &--visible {
-        opacity: 1;
-        visibility: visible;
-        transform: scale(1);
+        &--reg {
+            color: $mainDarkBlue;
+        }
+        &--visible {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 }
