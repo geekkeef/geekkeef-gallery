@@ -24,6 +24,9 @@
         +hr {
             margin-bottom: 30px;
         }
+        @mixin mediaMediumMax {
+            margin-top: 25px;
+        }
     }
     &__title--h3 {
         font-size: 0.9rem;

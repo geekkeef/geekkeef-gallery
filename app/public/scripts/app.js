@@ -9927,6 +9927,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var mobileMenu = new _mobileMenu2.default();
 var dateDisplay = new _dateDisplay2.default();
 var modal = new _modal2.default();
+
 checkPage();
 function checkPage() {
     var pathName = window.location.pathname;
@@ -10095,21 +10096,15 @@ var Modal = function () {
         _classCallCheck(this, Modal);
 
         this.openModalClick = (0, _jquery2.default)('.open-modal');
-        this.openLoginClick = (0, _jquery2.default)('.open-login-modal');
-        this.openRegClick = (0, _jquery2.default)('.open-reg-modal');
-        this.modalSocial = (0, _jquery2.default)('.modal--social');
-        this.modalLogin = (0, _jquery2.default)('.modal--login');
-        this.modalReg = (0, _jquery2.default)('.modal--reg');
-        this.closeModalClick = (0, _jquery2.default)('.modal__close');
+        this.closeModalClick = (0, _jquery2.default)('.btn__exit');
+        this.modal = (0, _jquery2.default)('.modal--social', window.parent.document);
         this.events();
     }
 
     _createClass(Modal, [{
         key: 'events',
         value: function events() {
-            this.openModalClick.click(this.openSocialModal.bind(this));
-            this.openLoginClick.click(this.openLoginModal.bind(this));
-            this.openRegClick.click(this.openRegModal.bind(this));
+            this.openModalClick.click(this.openModal.bind(this));
             this.closeModalClick.click(this.closeModal.bind(this));
             (0, _jquery2.default)(document).keyup(this.keyPressHandler.bind(this));
         }
@@ -10121,39 +10116,17 @@ var Modal = function () {
             }
         }
     }, {
-        key: 'openSocialModal',
-        value: function openSocialModal() {
-            this.modalSocial.addClass('modal--visible');
-            this.closeModalClick.addClass('modal__close--visible');
-            this.modalSocial.html('<object width="100%" height="100%" type="text/html" data="http://localhost:4001/social"></object>');
-            return false; // prevent default scroll up functionality in browser fomr '#' link
-        }
-    }, {
-        key: 'openLoginModal',
-        value: function openLoginModal() {
-            this.modalLogin.addClass('modal--visible');
-            this.closeModalClick.addClass('modal__close--visible');
-            this.modalLogin.html('<object width="100%" height="100%" type="text/html" data="http://localhost:4001/login"></object>');
-            return false;
-        }
-    }, {
-        key: 'openRegModal',
-        value: function openRegModal() {
-            this.modalReg.addClass('modal--visible');
-            this.closeModalClick.addClass('modal__close--visible');
-            this.modalReg.html('<object width="100%" height="100%" type="text/html" data="http://localhost:4001/register"></object>');
-            return false;
+        key: 'openModal',
+        value: function openModal() {
+            this.modal.addClass('modal--visible');
+            this.modal.html('<object width="100%" height="100%" type="text/html" data="http://localhost:5001/social"></object>');
+            return false; // prevent default functionality in browser for '#' link
         }
     }, {
         key: 'closeModal',
         value: function closeModal() {
-            this.closeModalClick.removeClass('modal__close--visible');
-            this.modalSocial.removeClass('modal--visible'); // remove modal class
-            this.modalLogin.removeClass('modal--visible');
-            this.modalReg.removeClass('modal--visible');
-            this.modalSocial.html('');
-            this.modalLogin.html('');
-            this.modalReg.html('');
+            this.modal.removeClass('modal--visible');
+            this.modal.html('');
         }
     }]);
 

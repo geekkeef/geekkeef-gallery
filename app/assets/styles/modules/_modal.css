@@ -8,6 +8,8 @@
     bottom: 0;
     left: 0;
     right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
     opacity: 0;
     visibility: hidden;
     transform: scale(1.2);
@@ -33,6 +35,9 @@
         @mixin mediaSmallMax {
             margin-top: 50%;
         }
+        @mixin mediaSmallMax {
+            margin-top: 30%;
+        }
     }
     &--social {
         background-color: rgba(255, 255, 255, 0.95);
@@ -50,7 +55,7 @@
             margin-top: 20%;
         }
         @mixin mediaSmallMax {
-            margin-top: 45%;
+            margin-top: 30%;
         }
     }
     &__description {
@@ -65,24 +70,15 @@
     &__close {
         position: absolute;
         top: 15px;
-        right: 15px;
+        right: 30px;
         font-size: 2.2rem;
         transform: scaleX(1.5);
         transform-origin: 100% 0;
         cursor: pointer;
         z-index: 10;
-        color: $mainDarkOrange;
-        opacity: 0;
-        visibility: hidden;
+        color: $mainPink;
         &:hover {
-            color: $mainPink;
-        }
-        &--reg {
-            color: $mainDarkBlue;
-        }
-        &--visible {
-            opacity: 1;
-            visibility: visible;
+            color: $mainDarkPink;
         }
     }
 }

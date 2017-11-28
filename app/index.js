@@ -41,7 +41,8 @@ app.get('/', function(req,res){
 });
 
 app.get("/home", function (req, res) {
-    res.render('home');
+    var div = '<div id="modal--reg" class="modal modal--reg"></div>'
+    res.render('home', { title: 'GEEK', regModal: div });
 });
 
 app.get("/social", function (req, res) {
@@ -127,6 +128,22 @@ app.get('/register', function(req,res){
     res.render('register');
 });
 
+app.post('/register', function(req,res){
+    var div = '<div id="modal--reg" class="modal modal--reg"></div>'
+    var newUser = new User({username:req.body.username});
+    User.register(newUser, req.body.password, function(err, user){
+        if(err){
+            console.log(err);
+            return res.render('home');
+        }else{
+            passport.authenticate('local')(req,res,function(){
+                res.redirect('/');
+                res.send({ regModal: div});
+            });
+        }
+    });
+});
+
 app.get('/login', function (req, res) {
     res.render('login');
 });
@@ -135,6 +152,6 @@ app.get('/login', function (req, res) {
 /* Listen PORT
 ===============================================================*/
 
-app.listen(4001, function(){
+app.listen(5001, function(){
     console.log('SERVER STARTED');
 });

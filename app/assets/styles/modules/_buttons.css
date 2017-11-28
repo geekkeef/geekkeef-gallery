@@ -46,4 +46,9 @@
         font-size: 1.1rem;
         padding: 8px 25px
     }
+    &__exit {
+        display: block;
+        margin: 0 auto;
+        margin-top: 35px;
+    }
 }

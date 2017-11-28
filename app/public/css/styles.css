@@ -1151,6 +1151,13 @@ li .nav--special {
             margin-bottom: 30px;
         }
 
+@media only screen and (max-width: 992px) {
+
+.welcome__title--bar {
+            margin-top: 25px
+    }
+    }
+
 .welcome__title--h3 {
         font-size: 0.9rem;
         font-weight: 200;
@@ -1562,6 +1569,12 @@ li .nav--special {
         padding: 8px 25px
     }
 
+.btn__exit {
+        display: block;
+        margin: 0 auto;
+        margin-top: 35px;
+    }
+
 /* Footer 
  ================================================================ */
 
@@ -1673,6 +1686,8 @@ li .nav--special {
     bottom: 0;
     left: 0;
     right: 0;
+    padding-left: 20px;
+    padding-right: 20px;
     opacity: 0;
     visibility: hidden;
     -webkit-transform: scale(1.2);
@@ -1713,6 +1728,13 @@ li .nav--special {
     }
     }
 
+@media only screen and (max-width: 767px) {
+
+.modal--panel {
+            margin-top: 30%
+    }
+    }
+
 .modal--social {
         background-color: rgba(255, 255, 255, 0.95);
     }
@@ -1740,7 +1762,7 @@ li .nav--special {
 @media only screen and (max-width: 767px) {
 
 .modal__logo {
-            margin-top: 45%
+            margin-top: 30%
     }
     }
 
@@ -1761,7 +1783,7 @@ li .nav--special {
 .modal__close {
         position: absolute;
         top: 15px;
-        right: 15px;
+        right: 30px;
         font-size: 2.2rem;
         -webkit-transform: scaleX(1.5);
                 transform: scaleX(1.5);
@@ -1769,22 +1791,11 @@ li .nav--special {
                 transform-origin: 100% 0;
         cursor: pointer;
         z-index: 10;
-        color: #e88902;
-        opacity: 0;
-        visibility: hidden;
+        color: #e3415c;
     }
 
 .modal__close:hover {
-            color: #e3415c;
-        }
-
-.modal__close--reg {
-            color: #386769;
-        }
-
-.modal__close--visible {
-            opacity: 1;
-            visibility: visible;
+            color: #bf243e;
         }
 
 /* Main Gallery 

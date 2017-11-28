@@ -24,20 +24,21 @@
                         <i class="fa fa-share" aria-hidden="true"></i> Register</span>
                 </h1>
 
-                <form>
+                <form action="/register" method="POST">
                     <div class="form--group">
                         <input type="text" class="form--control" id="username" name="username" placeholder="Username">
                     </div>
                     <div class="form--group">
-                        <input type="text" class="form--control" id="password" name="password" placeholder="Password">
+                        <input type="password" class="form--control" id="password" name="password" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn--lg btn--blue">Sign Up</button>
+                    <button type="submit" class="btn btn--lg btn--blue btn__auth">Sign Up</button>
                 </form>
-
+                <button class="btn btn--pink btn__auth btn__exit" onclick="showhide()">X</button>
             </div>
         </div>
     </div>
 
 <script type="text/javascript" src="../../../scripts/app.js"></script>
+
 </body>
 </html>

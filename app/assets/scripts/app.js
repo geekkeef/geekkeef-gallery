@@ -6,6 +6,7 @@ import BkgImage from './modules/bkgImage';
 var mobileMenu = new MobileMenu();
 var dateDisplay = new DateDisplay();
 var modal = new Modal();
+
 checkPage();
 function checkPage(){
     var pathName = window.location.pathname;
