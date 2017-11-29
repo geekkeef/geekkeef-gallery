@@ -140,11 +140,9 @@ app.post('/register', function(req,res){
     });
 });
 
-
-
 /* Listen PORT
 ===============================================================*/
 
-app.listen(5001, function(){
+app.listen(5080, function(){
     console.log('SERVER STARTED');
 });
