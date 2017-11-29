@@ -1,9 +1,11 @@
 import MobileMenu from './modules/mobileMenu';
 import DateDisplay from './modules/dateDisplay';
 import BkgImage from './modules/bkgImage';
+import Modal from './modules/modalDisplay';
 
 var mobileMenu = new MobileMenu();
 var dateDisplay = new DateDisplay();
+var modal = new Modal();
 
 checkPage();
 function checkPage(){

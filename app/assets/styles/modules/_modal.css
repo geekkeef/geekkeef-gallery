@@ -26,6 +26,9 @@
         opacity: 1;
         transform: scale(1);
     }
+    &--social {
+        background: rgba($mainOrange, 0.8);
+    }
     &__window {
         position: fixed;
         left: 50%;
@@ -107,6 +110,15 @@
             height: 42px;
             display: block;
             margin: 25px auto;
+        }
+    }
+    &__description {
+        text-align: center;
+        font-size: 1.4rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        @mixin mediaSmallMax {
+            font-size: 1.2rem;
         }
     }
     button {

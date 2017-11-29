@@ -60,6 +60,12 @@
             li &--special {
                 color: $mainBlue;
             }
+            li &--login {
+                color: $mainPink;
+            }
+            li &--register {
+                color: $mainOrange;
+            }
             &__menu-icon {
                 width: 25px;
                 height: 25px;

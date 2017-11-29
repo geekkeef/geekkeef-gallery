@@ -840,6 +840,14 @@ li .nav--special {
                 color: #468284;
             }
 
+li .nav--login {
+                color: #e3415c;
+            }
+
+li .nav--register {
+                color: #fcb000;
+            }
+
 .nav__menu-icon {
                 width: 25px;
                 height: 25px;
@@ -1742,6 +1750,10 @@ li .nav--special {
                 transform: scale(1);
     }
 
+.modal--social {
+        background: rgba(252,176,0, 0.8);
+    }
+
 .modal__window {
         position: fixed;
         left: 50%;
@@ -1841,6 +1853,20 @@ li .nav--special {
             display: block;
             margin: 25px auto;
         }
+
+.modal__description {
+        text-align: center;
+        font-size: 1.4rem;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+@media only screen and (max-width: 767px) {
+
+.modal__description {
+            font-size: 1.2rem
+    }
+    }
 
 .modal button {
         margin-top: 10px;

@@ -37,21 +37,16 @@ passport.deserializeUser(User.deserializeUser());
 /* Routes 
 ===============================================================*/
 
-app.get('/test', function (req, res) {
-    res.render('test');
-});
-
 app.get('/', function(req,res){
-    res.render('landing');
+    res.render('landing', { title: 'welcomeTo' });
 });
 
 app.get("/home", function (req, res) {
-    var div = '<div id="modal--reg" class="modal modal--reg"></div>'
-    res.render('home', { title: 'GEEK', regModal: div });
+    res.render('home', {title: 'home'});
 });
 
 app.get("/social", function (req, res) {
-    res.render('social_temp');
+    res.render('social');
 });
 
 app.get('/gallery', function(req,res){
@@ -59,7 +54,7 @@ app.get('/gallery', function(req,res){
         if (err || !allPhotos) {
             console.log(err);
         } else {
-            res.render('gallery/gallery', { photos: allPhotos });
+            res.render('gallery/gallery', { photos: allPhotos, title: 'gallery'});
         }
     });
 });
@@ -81,7 +76,7 @@ app.post('/gallery', function(req,res){
 });
 
 app.get('/gallery/new', function(req,res){
-    res.render('gallery/new');
+    res.render('gallery/new', { title: 'addPhoto' });
 });
 
 app.get('/gallery/:id', function(req,res){
@@ -89,7 +84,8 @@ app.get('/gallery/:id', function(req,res){
         if(err || !foundPhoto || !req.params.id){
             console.log(err);
         }else{
-            res.render('gallery/show', {photo:foundPhoto});
+            photoName = foundPhoto.name.replace(" ","");
+            res.render('gallery/show', { photo: foundPhoto, title: 'photo_' + photoName});
         }
     });
 });
@@ -102,7 +98,8 @@ app.get('/gallery/:id/comments/new', function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('comments/new', {photo:foundPhoto});
+            photoName = foundPhoto.name.replace(" ", "");
+            res.render('comments/new', { photo: foundPhoto, title: 'comment_' + photoName });
         }
     });
 });
@@ -129,10 +126,6 @@ app.post('/gallery/:id/comments', function(req,res){
 /* Auth Routes 
 ===============================================================*/
 
-app.get('/register', function(req,res){
-    res.render('register');
-});
-
 app.post('/register', function(req,res){
     var newUser = new User({username:req.body.username});
     User.register(newUser, req.body.password, function(err, user){
@@ -147,9 +140,6 @@ app.post('/register', function(req,res){
     });
 });
 
-app.get('/login', function (req, res) {
-    res.render('login');
-});
 
 
 /* Listen PORT

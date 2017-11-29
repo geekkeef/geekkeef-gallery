@@ -9918,10 +9918,15 @@ var _bkgImage = __webpack_require__(5);
 
 var _bkgImage2 = _interopRequireDefault(_bkgImage);
 
+var _modalDisplay = __webpack_require__(6);
+
+var _modalDisplay2 = _interopRequireDefault(_modalDisplay);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _mobileMenu2.default();
 var dateDisplay = new _dateDisplay2.default();
+var modal = new _modalDisplay2.default();
 
 checkPage();
 function checkPage() {
@@ -10106,6 +10111,105 @@ var BkgImage = function () {
 }();
 
 exports.default = BkgImage;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Modal = function () {
+    function Modal() {
+        _classCallCheck(this, Modal);
+
+        this.modal = (0, _jquery2.default)('.modal');
+        this.loginForm = (0, _jquery2.default)('#modal__login');
+        this.signupForm = (0, _jquery2.default)('#modal__register');
+        this.formTabs = (0, _jquery2.default)('.modal__switcher');
+        this.highlight = (0, _jquery2.default)('#hr--highlight');
+        this.tabLogin = this.formTabs.children('li').eq(0).children('a');
+        this.tabSignUp = this.formTabs.children('li').eq(1).children('a');
+        this.nav = (0, _jquery2.default)('.nav__menu-content');
+        this.login = (0, _jquery2.default)('.nav--login');
+        this.register = (0, _jquery2.default)('.nav--register');
+        this.events();
+    }
+
+    _createClass(Modal, [{
+        key: 'events',
+        value: function events() {
+            this.nav.click(this.openModal.bind(this));
+            this.login.click(this.loginSelected.bind(this));
+            this.register.click(this.signupSelected.bind(this));
+            this.formTabs.click(this.selectTab.bind(this));
+            this.modal.click(this.closeModal.bind(this));
+            (0, _jquery2.default)(document).keyup(this.keyPressHandler.bind(this));
+        }
+    }, {
+        key: 'keyPressHandler',
+        value: function keyPressHandler(e) {
+            if (e.keyCode == 27) {
+                this.modal.removeClass('is-visible');
+            }
+        }
+    }, {
+        key: 'openModal',
+        value: function openModal(e) {
+            (0, _jquery2.default)(e.target).is(this.nav) && this.nav.children('ul').toggleClass('is-visible');
+        }
+    }, {
+        key: 'closeModal',
+        value: function closeModal(e) {
+            if ((0, _jquery2.default)(e.target).is(this.modal) || (0, _jquery2.default)(e.target).is('.modal__close')) {
+                this.modal.removeClass('is-visible');
+            }
+        }
+    }, {
+        key: 'selectTab',
+        value: function selectTab(e) {
+            e.preventDefault();
+            (0, _jquery2.default)(event.target).is(this.tabLogin) ? this.loginSelected() : this.signupSelected();
+        }
+    }, {
+        key: 'loginSelected',
+        value: function loginSelected() {
+            this.modal.addClass('is-visible');
+            this.loginForm.addClass('is-selected');
+            this.signupForm.removeClass('is-selected');
+            this.tabLogin.addClass('selected');
+            this.highlight.removeClass('register');
+        }
+    }, {
+        key: 'signupSelected',
+        value: function signupSelected() {
+            this.modal.addClass('is-visible');
+            this.loginForm.removeClass('is-selected');
+            this.signupForm.addClass('is-selected');
+            this.tabLogin.removeClass('selected');
+            this.tabSignUp.addClass('selected');
+            this.highlight.addClass('register');
+        }
+    }]);
+
+    return Modal;
+}();
+
+exports.default = Modal;
 
 /***/ })
 /******/ ]);
