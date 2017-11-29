@@ -71,7 +71,7 @@
         background-color: $bgColorDarker;
         height: 600px;
         border-top: 3px solid $mainPink;
-        margin-top: 5px;
+        margin-top: 30px;
         background-repeat: none;
         @mixin mediaSmallMax {
             margin-bottom: 15px;

@@ -39,35 +39,47 @@
             background-image: url(/images/ugur-akdemir-238673.jpg);
             height: 476px;
             @mixin mediaSmallMax {
-                height: 325px;
+                height: 425px;
             }
         }
         &__md--trooper {
             background-image: url(/images/ciprian-boiciuc-193062.jpg);
             height: 238px;
+            @mixin mediaMediumMax {
+                height: 275px;
+            }
             @mixin mediaSmallMax {
-                height: 160px;
+                height: 225px;
             }
         }
         &__md--pc {
             background-image: url(/images/nordwood-themes-387855.jpg);
             height: 238px;
+            @mixin mediaMediumMax {
+                height: 275px;
+            }
             @mixin mediaSmallMax {
-                height: 160px;
+                height: 225px;
             }
         }
         &__md--arcade {
             background-image: url(/images/daniel-monteiro-416820.jpg);
             height: 238px;
+            @mixin mediaMediumMax {
+                height: 275px;
+            }
             @mixin mediaSmallMax {
-                height: 160px;
+                height: 225px;
             }
         }
         &__md--booth {
             background-image: url(/images/joel-muniz-394897.jpg);
             height: 238px;
+            @mixin mediaMediumMax {
+                height: 275px;
+            }
             @mixin mediaSmallMax {
-                height: 160px;
+                height: 225px;
             }
         }
     }

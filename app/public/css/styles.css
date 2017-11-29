@@ -1173,7 +1173,7 @@ li .nav--special {
 @media only screen and (max-width: 767px) {
 
 .welcome__img--controller {
-                height: 325px
+                height: 425px
         }
     }
 
@@ -1182,10 +1182,17 @@ li .nav--special {
             height: 238px;
         }
 
+@media only screen and (max-width: 992px) {
+
+.welcome__img__md--trooper {
+                height: 275px
+        }
+    }
+
 @media only screen and (max-width: 767px) {
 
 .welcome__img__md--trooper {
-                height: 160px
+                height: 225px
         }
     }
 
@@ -1194,10 +1201,17 @@ li .nav--special {
             height: 238px;
         }
 
+@media only screen and (max-width: 992px) {
+
+.welcome__img__md--pc {
+                height: 275px
+        }
+    }
+
 @media only screen and (max-width: 767px) {
 
 .welcome__img__md--pc {
-                height: 160px
+                height: 225px
         }
     }
 
@@ -1206,10 +1220,17 @@ li .nav--special {
             height: 238px;
         }
 
+@media only screen and (max-width: 992px) {
+
+.welcome__img__md--arcade {
+                height: 275px
+        }
+    }
+
 @media only screen and (max-width: 767px) {
 
 .welcome__img__md--arcade {
-                height: 160px
+                height: 225px
         }
     }
 
@@ -1218,10 +1239,17 @@ li .nav--special {
             height: 238px;
         }
 
+@media only screen and (max-width: 992px) {
+
+.welcome__img__md--booth {
+                height: 275px
+        }
+    }
+
 @media only screen and (max-width: 767px) {
 
 .welcome__img__md--booth {
-                height: 160px
+                height: 225px
         }
     }
 
@@ -1559,6 +1587,16 @@ li .nav--special {
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
 
+.btn--close {
+        background-color: #1F2024;
+        color: #e3415c;
+    }
+
+.btn--close:hover {
+            background-color: #16151a;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
 .btn--lg {
         font-size: 1.1rem;
         padding: 8px 45px
@@ -1567,12 +1605,6 @@ li .nav--special {
 .btn--sm {
         font-size: 1.1rem;
         padding: 8px 25px
-    }
-
-.btn__exit {
-        display: block;
-        margin: 0 auto;
-        margin-top: 35px;
     }
 
 /* Footer 
@@ -1680,123 +1712,180 @@ li .nav--special {
  ================================================================ */
 
 .modal {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
     position: fixed;
-    z-index: 5;
     top: 0;
-    bottom: 0;
     left: 0;
-    right: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-    opacity: 0;
-    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    background: rgba(70,130,132, 0.8);
+    z-index: 3;
+    overflow-y: auto;
+    cursor: pointer;
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
-    -webkit-transition: all .3s ease-out;
-    transition: all .3s ease-out;
+    -webkit-transition: all 0.3s, visibility 0.3s;
+    transition: all 0.3s, visibility 0.3s;
+    visibility: hidden;
+    opacity: 0;
 }
 
-.modal--visible {
-        opacity: 1;
+.modal.is-visible {
         visibility: visible;
+        opacity: 1;
         -webkit-transform: scale(1);
                 transform: scale(1);
-        margin: 0 auto;
     }
 
-.modal--panel {
+.modal__window {
+        position: fixed;
+        left: 50%;
+        top: 75px;
+        min-width: 550px;
+        height: 450px;
         background-color: #fff;
-        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .09);
-                box-shadow: 0 1px 1px rgba(0, 0, 0, .09);
-        max-width: 450px;
-        margin: 12% auto 0;
+        border: 1px solid #bbb;
         border-radius: 5px;
+        -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+        -webkit-transform: translate(-50%, 0);
+                transform: translate(-50%, 0);
+        z-index: 5;
     }
 
-.modal--panel .btn {
-            margin-bottom: 30px;
+.modal__shade {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        z-index: 3;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+.modal__shade--social {
+            background-color: rgba(252,176,0, 0.7);
         }
 
-.modal--panel form {
+.modal__shade--reg {
+            background-color: rgba(252,176,0, 0.7);
+        }
+
+.modal__shade--login {
+            background-color: rgba(70,130,132, 0.7);
+        }
+
+.modal__switcher {
+        list-style-type: none;
+        display: block;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+.modal__switcher li {
+            width: 50%;
+            float: left;
             text-align: center;
+            display: list-item;
         }
 
-@media only screen and (max-width: 767px) {
+.modal__switcher li:first-child a {
+                border-radius: .25em 0 0 0;
+            }
 
-.modal--panel {
-            margin-top: 50%
-    }
-    }
+.modal__switcher li:last-child a {
+                border-radius: 0 .25em 0 0;
+            }
 
-@media only screen and (max-width: 767px) {
+.modal__switcher a {
+            display: inline-block;
+            width: 100%;
+            padding: .75rem 0;
+            margin: 0;
+            text-decoration: none;
+            color: #9d9d9d;
+            padding: 25px 0;
+            margin-bottom: 25px;
+            background-color: #16151a;
+        }
 
-.modal--panel {
-            margin-top: 30%
-    }
-    }
+.modal__switcher #hr--highlight {
+            height: 4.6rem;
+            width: 50%;
+            margin: 0;
+            background: #e3415c;
+            border: none;
+            -webkit-transition: .3s ease-in-out;
+            transition: .3s ease-in-out;
+        }
 
-.modal--social {
-        background-color: rgba(255, 255, 255, 0.95);
-    }
+.modal__switcher #hr--highlight.register {
+            margin-left: 50%;
+            background: #fcb000;
+        }
 
-.modal--login {
-        background-color: rgba(70,130,132, 0.95);
-    }
-
-.modal--reg {
-        background-color: rgba(252,176,0, 0.95);
-    }
-
-.modal__logo {
-        margin-top: 12%;
+.modal form {
+        text-align: center;
         padding: 0 15px;
     }
 
-@media only screen and (max-width: 992px) {
+.modal form input {
+            height: 42px;
+            display: block;
+            margin: 25px auto;
+        }
 
-.modal__logo {
-            margin-top: 20%
-    }
-    }
-
-@media only screen and (max-width: 767px) {
-
-.modal__logo {
-            margin-top: 30%
-    }
-    }
-
-.modal__description {
-        text-align: center;
-        font-size: 1.4rem;
-        line-height: 1.2;
-        margin-bottom: 20px;
-    }
-
-@media only screen and (max-width: 767px) {
-
-.modal__description {
-            font-size: 1.2rem
-    }
+.modal button {
+        margin-top: 10px;
     }
 
 .modal__close {
         position: absolute;
-        top: 15px;
-        right: 30px;
-        font-size: 2.2rem;
-        -webkit-transform: scaleX(1.5);
-                transform: scaleX(1.5);
+        top: 20px;
+        right: 20px;
+        font-size: 1.1rem;
+        -webkit-transform: scaleX(1.2);
+                transform: scaleX(1.2);
         -webkit-transform-origin: 100% 0;
                 transform-origin: 100% 0;
-        cursor: pointer;
         z-index: 10;
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        font-size: 1rem;
+        background-color: #1F2024;
         color: #e3415c;
     }
 
 .modal__close:hover {
-            color: #bf243e;
+            background-color: #16151a;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
+
+.modal #modal__login,
+    .modal #modal__register {
+        display: none;
+        text-align: center;
+    }
+
+.modal #modal__login.is-selected,
+    .modal #modal__register.is-selected {
+        display: block;
+    }
 
 /* Main Gallery 
  ================================================================ */
@@ -1888,7 +1977,7 @@ li .nav--special {
         background-color: #16151a;
         height: 600px;
         border-top: 3px solid #e3415c;
-        margin-top: 5px;
+        margin-top: 30px;
         background-repeat: none;
     }
 

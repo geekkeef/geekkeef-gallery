@@ -3,6 +3,7 @@ var express         = require('express'),
     mongoose        = require('mongoose'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local'),
+    popupTools      = require('popup-tools'),
     Gallery         = require('./models/gallery'),
     Comment         = require('./models/comment'),
     User            = require('./models/user'),
@@ -36,6 +37,10 @@ passport.deserializeUser(User.deserializeUser());
 /* Routes 
 ===============================================================*/
 
+app.get('/test', function (req, res) {
+    res.render('test');
+});
+
 app.get('/', function(req,res){
     res.render('landing');
 });
@@ -46,7 +51,7 @@ app.get("/home", function (req, res) {
 });
 
 app.get("/social", function (req, res) {
-    res.render('social');
+    res.render('social_temp');
 });
 
 app.get('/gallery', function(req,res){
@@ -129,16 +134,14 @@ app.get('/register', function(req,res){
 });
 
 app.post('/register', function(req,res){
-    var div = '<div id="modal--reg" class="modal modal--reg"></div>'
     var newUser = new User({username:req.body.username});
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             console.log(err);
-            return res.render('home');
+            return res.render('landing');
         }else{
             passport.authenticate('local')(req,res,function(){
-                res.redirect('/');
-                res.send({ regModal: div});
+                res.redirect('/home');
             });
         }
     });

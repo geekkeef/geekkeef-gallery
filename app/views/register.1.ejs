@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML, CSS, JavaScript, NodeJs, NPM, Gulp, Git, Express, MongoDB, Geek, Nerd, Tech, Technology, Code, Gaming, Retro, Music, Jumpman, NBA, Sexy, Beauty, Dope, Funny, Humor, Movies, Film, LOTR, Lord of the Rings, GOT, Game of Thrones, Patronus, Harry Potter, Comics, Marvel, DC, Eggo, Stranger Things, Walking Dead, Delorean, Force, Star Wars, Classics, Throwbacks, Art, Photography, Sony, Alpha, Panasonic, Lumix, Health, Fitness, Good Vibes, Love, Keep Going">
+    <meta name="author" content="geekKeef, KJunior">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>home:{{geekKeef}}</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+
+    <!-- modal register -->
+    <div id="modal--reg">
+        <div class="modal--panel">
+            <div class="logo modal__logo">
+                <h1 class="logo__h1 logo__h1--modal">
+                    <span class="logo__span">
+                        <i class="fa fa-share" aria-hidden="true"></i> Register</span>
+                </h1>
+
+                <form action="/register" method="POST">
+                    <div class="form--group">
+                        <input type="text" class="form--control" id="username" name="username" placeholder="Username">
+                    </div>
+                    <div class="form--group">
+                        <input type="password" class="form--control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn--lg btn--blue btn__auth">Sign Up</button>
+                </form>
+                <button class="btn btn--pink btn__auth btn__exit" onclick="showhide()">X</button>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="../../../scripts/app.js"></script>
+
+</body>
+</html>

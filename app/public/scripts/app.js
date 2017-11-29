@@ -9914,11 +9914,7 @@ var _dateDisplay = __webpack_require__(4);
 
 var _dateDisplay2 = _interopRequireDefault(_dateDisplay);
 
-var _modal = __webpack_require__(5);
-
-var _modal2 = _interopRequireDefault(_modal);
-
-var _bkgImage = __webpack_require__(6);
+var _bkgImage = __webpack_require__(5);
 
 var _bkgImage2 = _interopRequireDefault(_bkgImage);
 
@@ -9926,7 +9922,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var mobileMenu = new _mobileMenu2.default();
 var dateDisplay = new _dateDisplay2.default();
-var modal = new _modal2.default();
 
 checkPage();
 function checkPage() {
@@ -10072,71 +10067,6 @@ exports.default = DateDisplay;
 
 /***/ }),
 /* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _jquery = __webpack_require__(0);
-
-var _jquery2 = _interopRequireDefault(_jquery);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-var Modal = function () {
-    function Modal() {
-        _classCallCheck(this, Modal);
-
-        this.openModalClick = (0, _jquery2.default)('.open-modal');
-        this.closeModalClick = (0, _jquery2.default)('.btn__exit');
-        this.modal = (0, _jquery2.default)('.modal--social', window.parent.document);
-        this.events();
-    }
-
-    _createClass(Modal, [{
-        key: 'events',
-        value: function events() {
-            this.openModalClick.click(this.openModal.bind(this));
-            this.closeModalClick.click(this.closeModal.bind(this));
-            (0, _jquery2.default)(document).keyup(this.keyPressHandler.bind(this));
-        }
-    }, {
-        key: 'keyPressHandler',
-        value: function keyPressHandler(e) {
-            if (e.keyCode == 27) {
-                this.closeModal();
-            }
-        }
-    }, {
-        key: 'openModal',
-        value: function openModal() {
-            this.modal.addClass('modal--visible');
-            this.modal.html('<object width="100%" height="100%" type="text/html" data="http://localhost:5001/social"></object>');
-            return false; // prevent default functionality in browser for '#' link
-        }
-    }, {
-        key: 'closeModal',
-        value: function closeModal() {
-            this.modal.removeClass('modal--visible');
-            this.modal.html('');
-        }
-    }]);
-
-    return Modal;
-}();
-
-exports.default = Modal;
-
-/***/ }),
-/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
