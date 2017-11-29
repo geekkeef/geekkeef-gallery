@@ -3,6 +3,7 @@ var express         = require('express'),
     mongoose        = require('mongoose'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local'),
+    popupTools      = require('popup-tools'),
     Gallery         = require('./models/gallery'),
     Comment         = require('./models/comment'),
     User            = require('./models/user'),
@@ -37,11 +38,11 @@ passport.deserializeUser(User.deserializeUser());
 ===============================================================*/
 
 app.get('/', function(req,res){
-    res.render('landing');
+    res.render('landing', { title: 'welcomeTo' });
 });
 
 app.get("/home", function (req, res) {
-    res.render('home');
+    res.render('home', {title: 'home'});
 });
 
 app.get("/social", function (req, res) {
@@ -53,7 +54,7 @@ app.get('/gallery', function(req,res){
         if (err || !allPhotos) {
             console.log(err);
         } else {
-            res.render('gallery/gallery', { photos: allPhotos });
+            res.render('gallery/gallery', { photos: allPhotos, title: 'gallery'});
         }
     });
 });
@@ -75,7 +76,7 @@ app.post('/gallery', function(req,res){
 });
 
 app.get('/gallery/new', function(req,res){
-    res.render('gallery/new');
+    res.render('gallery/new', { title: 'addPhoto' });
 });
 
 app.get('/gallery/:id', function(req,res){
@@ -83,7 +84,8 @@ app.get('/gallery/:id', function(req,res){
         if(err || !foundPhoto || !req.params.id){
             console.log(err);
         }else{
-            res.render('gallery/show', {photo:foundPhoto});
+            photoName = foundPhoto.name.replace(" ","");
+            res.render('gallery/show', { photo: foundPhoto, title: 'photo_' + photoName});
         }
     });
 });
@@ -96,7 +98,8 @@ app.get('/gallery/:id/comments/new', function(req,res){
         if(err){
             console.log(err);
         }else{
-            res.render('comments/new', {photo:foundPhoto});
+            photoName = foundPhoto.name.replace(" ", "");
+            res.render('comments/new', { photo: foundPhoto, title: 'comment_' + photoName });
         }
     });
 });
@@ -123,18 +126,25 @@ app.post('/gallery/:id/comments', function(req,res){
 /* Auth Routes 
 ===============================================================*/
 
-app.get('/register', function(req,res){
-    res.render('register');
+app.post('/register', function(req,res){
+    var newUser = new User({username:req.body.username});
+    User.register(newUser, req.body.password, function(err, user){
+        if(err){
+            console.log(err);
+            return res.render('landing');
+        }else{
+            passport.authenticate('local')(req,res,function(){
+                res.redirect('/home');
+            });
+        }
+    });
 });
 
-app.get('/login', function (req, res) {
-    res.render('login');
-});
 
 
 /* Listen PORT
 ===============================================================*/
 
-app.listen(4001, function(){
+app.listen(5001, function(){
     console.log('SERVER STARTED');
 });

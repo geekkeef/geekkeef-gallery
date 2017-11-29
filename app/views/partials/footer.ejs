@@ -1,5 +1,4 @@
-</div>
-<!-- container short -->
+</div> <!-- container short -->
 
 <div class="footer">
     <div class="footer--top">
@@ -23,7 +22,7 @@
                         <div class="form--group">
                             <textarea class="form--control" rows="5" placeholder="Say something..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn--lg btn--orange open-modal">Contact Us</button>
+                        <button type="submit" class="btn btn--lg btn--orange">Contact Us</button>
                     </form>
 
                 </div>
@@ -63,21 +62,65 @@
     </div>
 </div>
 
+</div> <!-- container wide -->
+
+<!-- modals -->
+<div class="modal">
+    <div class="modal__window">
+
+
+        <ul class="modal__switcher">
+            <li class="modal--link-one">
+                <a href="#0">Login</a>
+            </li>
+            <li class="modal--link-two">
+                <a href="#0">Sign Up</a>
+            </li>
+            <hr id="hr--highlight">
+        </ul>
+
+        <div id="modal__login" class="is-selected">
+
+            <h1 class="logo__h1 logo__h1--modal">
+                <span class="logo__span">
+                    <i class="fa fa-sign-in" aria-hidden="true"></i> Login</span>
+            </h1>
+
+            <form>
+                <div class="form--group">
+                    <input type="text" class="form--control" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="form--group">
+                    <input type="password" class="form--control" id="password" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn--lg btn--pink">Login</button>
+            </form>
+
+        </div>
+
+        <div id="modal__register">
+
+            <h1 class="logo__h1 logo__h1--modal">
+                <span class="logo__span">
+                    <i class="fa fa-share" aria-hidden="true"></i> Register</span>
+            </h1>
+
+            <form action="/register" method="POST">
+                <div class="form--group">
+                    <input type="text" class="form--control" id="username" name="username" placeholder="Username">
+                </div>
+                <div class="form--group">
+                    <input type="password" class="form--control" id="password" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn--lg btn--orange">Sign Up</button>
+            </form>
+
+        </div>
+    </div>
+    <a href="#" class="modal__close">X</a>
 </div>
-<!-- container wide -->
 
-<!-- modal social -->
-<div class="modal modal--social"></div>
-<div class="modal__close">X</div>
-
-<!-- modal login -->
-<div class="modal modal--login"></div>
-<div class="modal__close">X</div>
-
-<!-- modal register -->
-<div class="modal modal--reg"></div>
-<div class="modal__close">X</div>
-
+<!-- App Script -->
 <script type="text/javascript" src="../../../scripts/app.js"></script>
 </body>
 

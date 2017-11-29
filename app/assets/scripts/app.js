@@ -1,11 +1,12 @@
 import MobileMenu from './modules/mobileMenu';
 import DateDisplay from './modules/dateDisplay';
-import Modal from './modules/modal';
 import BkgImage from './modules/bkgImage';
+import Modal from './modules/modalDisplay';
 
 var mobileMenu = new MobileMenu();
 var dateDisplay = new DateDisplay();
 var modal = new Modal();
+
 checkPage();
 function checkPage(){
     var pathName = window.location.pathname;
