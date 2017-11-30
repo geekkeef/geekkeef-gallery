@@ -5,7 +5,7 @@
             <div class="col--12">
                 <div class="photo__title">
                     <h3 class="photo__title--h3"><%= photo.name %></h3>
-                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    <i class="fa fa-picture-o icon-pic" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
@@ -44,6 +44,43 @@
             </div>
             <div class="col--6 col--6--sm">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur eros enim. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent sodales mauris vitae suscipit posuere. </p>
+                <div class="photo__user">
+
+                    <div class="row">
+                        <% if(currentUser && photo.author.id.equals(currentUser._id)){ %>
+                            <div class="col--2 col--2--md">
+                                <a class="action" href="/gallery/<%= photo._id %>/edit">Edit</a>
+                            </div>
+                            <div class="col--2 col--2--md">
+                                <form action="/gallery/<%= photo._id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="action">Delete</button>
+                                </form>
+                            </div>
+                            <div class="col--8 col--8--sm">
+                                <p class="user-name">
+                                    Submitted by:
+                                    <span>
+                                        <%= photo.author.username %>
+                                    </span>
+                                </p>
+                            </div>
+                        <% }else{ %>
+                            <div class="col--2 col--2--small">
+                                <i class="fa fa-user-circle icon-user" aria-hidden="true"></i>
+                            </div>
+                            <div class="col--10 col--10--sm">
+                                <p class="user-name">
+                                    Submitted by:
+                                    <span>
+                                        <%= photo.author.username %>
+                                    </span>
+                                </p>
+                            </div>
+                        <% } %>
+                               
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -71,14 +108,26 @@
                     </div>
                     <div class="comment__text col--10 col--10--sm">
                         <h4>
-                            <%= comment.author %>
+                            <%= comment.author.username %>
                         </h4>
                         <p>
                             <%= comment.text %>
                         </p>
                     </div>
                 </div>
-                <% }); %>
+                <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+                    <div class="row">
+                        
+                        <div class="col--12">
+                            <a class="action action--comment" 
+                            href="/gallery/<%= photo._id %>/comments/<%= comment._id %>/edit">Edit</a>
+                            <form action="/gallery/<%= photo._id %>/comments/<%= comment._id %>/?_method=DELETE" method="POST">
+                                <button type="submit" class="action">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                <% } %>
+            <% }); %>
         </div>
     </div>
 </div>

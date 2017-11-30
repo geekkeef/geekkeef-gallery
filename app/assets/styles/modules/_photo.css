@@ -13,7 +13,7 @@
         letter-spacing: 0.3rem;
         color: $mainPink;
     }
-    i {
+    i.icon-pic {
         font-size: 1.4rem;
         font-weight: 200;
         letter-spacing: 0.3rem;
@@ -49,6 +49,88 @@
         @mixin mediaSmallMax {
             margin-top: 40px;
             margin-bottom: 20px;
+        }
+    }
+    &__user {
+        margin-top: 10px;
+        padding: 11px 6px 8px 2px;
+        background-color: $bgColorLight;
+        border-radius: 3px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba($mainLightGrey, 0.2);
+        p.user-name {
+            font-size: .7rem;
+            span {
+                font-weight: 700;
+            }
+            @mixin mediaSmallMax {
+                font-size: 0.9rem;
+            }
+        }
+        @mixin mediaSmallMax {
+            padding: 10px 6px 8px 0;
+        }
+        i.icon-user {
+            padding: none;
+            font-size: 1.5rem;
+            color: $mainLightGrey;
+        }
+        .col--2 {
+            text-align: center;
+            padding-top: 5.5px;
+            @mixin mediaSmallMax {
+                text-align: left;
+                padding-left: 8px;
+                &:first-of-type {
+                    text-align: right;
+                    padding-right: 8px;
+                }
+            }
+        }
+        .col--8,
+        .col--10 {
+            text-align: right;
+            @mixin mediaSmallMax {
+                text-align: center;
+            }
+        }
+        @mixin mediaSmallMax {
+            margin-top: 20px;
+        }
+        form {
+            display: inline-block;
+        }
+        .action {
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            border-radius: 3px;
+            border: none;
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 5px;
+            width: 55px;
+        }
+        a {
+            padding: 6px 0;
+            width: 50px;
+            margin-left: 8px;
+            background-color: $mainOrange;
+            &:hover {
+                background-color: $mainDarkOrange;
+            }
+        }
+        button.action {
+            background-color: $mainPink;
+            margin-left: 12px;
+            width: 55px;
+            padding: 6px 0;
+            &:hover {
+                background-color: $mainDarkPink;
+            }
+            @mixin mediaSmallMax {
+                margin-left: 0;
+            }
         }
     }
     &__title-bar {

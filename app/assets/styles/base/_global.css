@@ -134,7 +134,21 @@
 
     .col--2 {
         width: 16.66%;
+        &--md {
+            @mixin mediaSmallMax {
+                display: block;
+                float: none;
+                width: 50%;
+            }
+        }
         &--sm {
+            @mixin mediaSmallMax {
+                display: block;
+                float: none;
+                width: 100%;
+            }
+        }
+        &--small {
             @mixin mediaSmallMax {
                 display: block;
                 float: none;
@@ -151,6 +165,13 @@
         width: 33.33%;
         &--md {
             @mixin mediaMediumMax {
+                display: block;
+                float: none;
+                width: 100%;
+            }
+        }
+        &--sm {
+            @mixin mediaSmallMax {
                 display: block;
                 float: none;
                 width: 100%;
@@ -209,6 +230,13 @@
         width: 66.66%;
         &--md {
             @mixin mediaMediumMax {
+                display: block;
+                float: none;
+                width: 100%;
+            }
+        }
+        &--sm {
+            @mixin mediaSmallMax {
                 display: block;
                 float: none;
                 width: 100%;

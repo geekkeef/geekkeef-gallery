@@ -1,0 +1,26 @@
+<% include ../partials/header %>
+
+    <div class="row main-gallery__add">
+        <div class="col--12">
+            <div class="gallery__title--bar">
+                <h3 class="gallery__title gallery__title--comment">
+                    <i class="fa fa-picture-o" aria-hidden="true"></i>
+                    (Edit)Comment
+                </h3>
+            </div>
+        </div>
+    </div>
+
+
+    <form class="form--contact" action="/gallery/<%= photoId %>/comments/<%= comment._id %>?_method=PUT" method="POST">
+        <div class="form--group">
+            <input type="text" class="form--control" id="text" name="comment[text]" value="<%= comment.text %>">
+        </div>
+        <button type="submit" class="btn btn--lg btn--blue">Edit Comment</button>
+    </form>
+
+    <div class="main-gallery__button main-gallery__button--sm">
+        <a onclick="goBack()" class="btn btn--orange">Back</a>
+    </div>
+
+    <% include ../partials/footer %>

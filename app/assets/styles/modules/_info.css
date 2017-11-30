@@ -1,9 +1,6 @@
 /* Info 
  ================================================================ */
 
-#dateDisplay {
-    font-size: 0.8rem;
-}
 .info {
     padding: 10px 0;
     position: relative;
@@ -13,4 +10,32 @@
     @mixin mediaSmallMax {
         text-align: center;
     }
+    &__user {
+        float: left;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding-right: 20px;
+        padding-top: 4px;
+        p {
+            @mixin mediaSmallMax {
+                margin-left: 17px;
+            }
+        }
+        p span {
+            color: $mainPink;
+            @mixin mediaSmallMax {
+                font-size: 1.3rem;
+            }
+        }
+        @mixin mediaSmallMax {
+            font-size: 1rem;
+            float: none;
+            text-align: center;
+        }
+    }
+}
+
+#dateDisplay {
+    padding-top: 4px;
+    font-size: 0.8rem;
 }

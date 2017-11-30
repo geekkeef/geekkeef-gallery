@@ -1,58 +1,94 @@
-/* Comment
+    /* Comment
  ================================================================ */
 
-.comment {
-    width: 80%;
-    display: block;
-    margin: 10px auto;
-    background-color: $bgColorLight;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    &__title {
-        text-align: center;
-    }
-    &__title--h3 {
-        padding-top: 35px;
-        font-size: 1.4rem;
-        font-weight: 200;
-        letter-spacing: 0.3rem;
-        color: $mainBlue;
-        margin-bottom: 10px;
-    }
-    &__image {
-        @mixin mediaSmallMax {}
-    }
-    &__text {
-        padding-left: 15px;
-        @mixin mediaSmallMax {
-            text-align: center;
-            padding: 0 20px 20px
-        }
-    }
-    div.row:nth-of-type(2n+2) {
-        background-color: #e2e2e2;
-    }
-    h4 {
-        margin-top: 12px;
-        color: $mainBlue;
-    }
-    p {
-        font-size: 0.95rem;
-        margin-top: 5px;
-    }
-    &__user-image {
-        margin-top: 3px;
+    .comment {
+        width: 80%;
         display: block;
-        margin: auto;
-        @mixin mediaSmallMax {
-            padding-top: 10px;
+        margin: 10px auto;
+        background-color: $bgColorLight;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        &__title {
+            text-align: center;
+        }
+        &__title--h3 {
+            padding-top: 35px;
+            font-size: 1.4rem;
+            font-weight: 200;
+            letter-spacing: 0.3rem;
+            color: $mainBlue;
+            margin-bottom: 10px;
+        }
+        &__image {
+            @mixin mediaSmallMax {}
+        }
+        &__text {
+            padding-left: 15px;
+            @mixin mediaSmallMax {
+                text-align: center;
+                padding: 0 20px 20px
+            }
+        }
+        div.row:nth-of-type(2n+2) {
+            background-color: #e2e2e2;
+        }
+        h4 {
+            margin-top: 12px;
+            color: $mainBlue;
+        }
+        p {
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+        &__user-image {
+            margin-top: 3px;
+            display: block;
+            margin: auto;
+            @mixin mediaSmallMax {
+                padding-top: 10px;
+            }
+        }
+        &__button {
+            text-align: center;
+            &--sm {
+                margin-bottom: 0;
+                margin-top: 10px;
+            }
+        }
+        .col--12 {
+            text-align: right;
+            padding: 12px 8px 7px;
+            @mixin mediaSmallMax {
+                text-align: center;
+            }
+        }
+        form {
+            display: inline-block;
+        }
+        .action {
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            border-radius: 3px;
+            border: none;
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        a {
+            padding: 3.1px 1.7px 3px 1.7px;
+            width: 75px;
+            background-color: $mainBlue;
+            &:hover {
+                background-color: $mainDarkBlue;
+            }
+        }
+        button.action {
+            padding: 3px 0;
+            background-color: $mainGrey;
+            width: 75px;
+            &:hover {
+                background-color: $bgColorDark;
+            }
         }
     }
-    &__button {
-        text-align: center;
-        &--sm {
-            margin-bottom: 0;
-            margin-top: 10px;
-        }
-    }
-}

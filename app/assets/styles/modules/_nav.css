@@ -66,6 +66,9 @@
             li &--register {
                 color: $mainOrange;
             }
+            li &--logout {
+                color: $mainBlue;
+            }
             &__menu-icon {
                 width: 25px;
                 height: 25px;

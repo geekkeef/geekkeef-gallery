@@ -619,7 +619,25 @@ html,
 
 @media only screen and (max-width: 767px) {
 
+.col--2--md {
+                display: block;
+                float: none;
+                width: 50%
+        }
+    }
+
+@media only screen and (max-width: 767px) {
+
 .col--2--sm {
+                display: block;
+                float: none;
+                width: 100%
+        }
+    }
+
+@media only screen and (max-width: 767px) {
+
+.col--2--small {
                 display: block;
                 float: none;
                 width: 100%
@@ -637,6 +655,15 @@ html,
 @media only screen and (max-width: 992px) {
 
 .col--4--md {
+                display: block;
+                float: none;
+                width: 100%
+        }
+    }
+
+@media only screen and (max-width: 767px) {
+
+.col--4--sm {
                 display: block;
                 float: none;
                 width: 100%
@@ -707,6 +734,15 @@ html,
 @media only screen and (max-width: 992px) {
 
 .col--8--md {
+                display: block;
+                float: none;
+                width: 100%
+        }
+    }
+
+@media only screen and (max-width: 767px) {
+
+.col--8--sm {
                 display: block;
                 float: none;
                 width: 100%
@@ -848,6 +884,10 @@ li .nav--register {
                 color: #fcb000;
             }
 
+li .nav--logout {
+                color: #468284;
+            }
+
 .nav__menu-icon {
                 width: 25px;
                 height: 25px;
@@ -969,10 +1009,6 @@ li .nav--register {
 /* Info 
  ================================================================ */
 
-#dateDisplay {
-    font-size: 0.8rem;
-}
-
 .info {
     padding: 10px 0;
     position: relative;
@@ -987,6 +1023,46 @@ li .nav--register {
         text-align: center
 }
     }
+
+.info__user {
+        float: left;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding-right: 20px;
+        padding-top: 4px;
+    }
+
+@media only screen and (max-width: 767px) {
+
+.info__user p {
+                margin-left: 17px
+        }
+    }
+
+.info__user p span {
+            color: #e3415c;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.info__user p span {
+                font-size: 1.3rem
+        }
+    }
+
+@media only screen and (max-width: 767px) {
+
+.info__user {
+            font-size: 1rem;
+            float: none;
+            text-align: center
+    }
+    }
+
+#dateDisplay {
+    padding-top: 4px;
+    font-size: 0.8rem;
+}
 
 /* Logo 
  ================================================================ */
@@ -2048,7 +2124,7 @@ li .nav--register {
         color: #e3415c;
     }
 
-.photo i {
+.photo i.icon-pic {
         font-size: 1.4rem;
         font-weight: 200;
         letter-spacing: 0.3rem;
@@ -2093,6 +2169,126 @@ li .nav--register {
             margin-top: 40px;
             margin-bottom: 20px
     }
+    }
+
+.photo__user {
+        margin-top: 10px;
+        padding: 11px 6px 8px 2px;
+        background-color: #f7f7f7;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(142,146,152, 0.2);
+    }
+
+.photo__user p.user-name {
+            font-size: .7rem;
+        }
+
+.photo__user p.user-name span {
+                font-weight: 700;
+            }
+
+@media only screen and (max-width: 767px) {
+
+.photo__user p.user-name {
+                font-size: 0.9rem
+        }
+    }
+
+@media only screen and (max-width: 767px) {
+
+.photo__user {
+            padding: 10px 6px 8px 0
+    }
+    }
+
+.photo__user i.icon-user {
+            padding: none;
+            font-size: 1.5rem;
+            color: #8e9298;
+        }
+
+.photo__user .col--2 {
+            text-align: center;
+            padding-top: 5.5px;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.photo__user .col--2 {
+                text-align: left;
+                padding-left: 8px
+        }
+                .photo__user .col--2:first-of-type {
+                    text-align: right;
+                    padding-right: 8px;
+                }
+    }
+
+.photo__user .col--8,
+        .photo__user .col--10 {
+            text-align: right;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.photo__user .col--8,
+        .photo__user .col--10 {
+                text-align: center
+        }
+    }
+
+@media only screen and (max-width: 767px) {
+
+.photo__user {
+            margin-top: 20px
+    }
+    }
+
+.photo__user form {
+            display: inline-block;
+        }
+
+.photo__user .action {
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            border-radius: 3px;
+            border: none;
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 5px;
+            width: 55px;
+        }
+
+.photo__user a {
+            padding: 6px 0;
+            width: 50px;
+            margin-left: 8px;
+            background-color: #fcb000;
+        }
+
+.photo__user a:hover {
+                background-color: #e88902;
+            }
+
+.photo__user button.action {
+            background-color: #e3415c;
+            margin-left: 12px;
+            width: 55px;
+            padding: 6px 0;
+        }
+
+.photo__user button.action:hover {
+                background-color: #bf243e;
+            }
+
+@media only screen and (max-width: 767px) {
+
+.photo__user button.action {
+                margin-left: 0
+        }
     }
 
 .photo__title-bar {
@@ -2145,74 +2341,121 @@ li .nav--register {
  ================================================================ */
 
 .comment {
-    width: 80%;
-    display: block;
-    margin: 10px auto;
-    background-color: #f7f7f7;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        width: 80%;
+        display: block;
+        margin: 10px auto;
+        background-color: #f7f7f7;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
 .comment__title {
-        text-align: center;
-    }
+            text-align: center;
+        }
 
 .comment__title--h3 {
-        padding-top: 35px;
-        font-size: 1.4rem;
-        font-weight: 200;
-        letter-spacing: 0.3rem;
-        color: #468284;
-        margin-bottom: 10px;
-    }
+            padding-top: 35px;
+            font-size: 1.4rem;
+            font-weight: 200;
+            letter-spacing: 0.3rem;
+            color: #468284;
+            margin-bottom: 10px;
+        }
 
 @media only screen and (max-width: 767px) {
     }
 
 .comment__text {
-        padding-left: 15px;
-    }
+            padding-left: 15px;
+        }
 
 @media only screen and (max-width: 767px) {
 
 .comment__text {
-            text-align: center;
-            padding: 0 20px 20px
-    }
+                text-align: center;
+                padding: 0 20px 20px
+        }
     }
 
 .comment div.row:nth-of-type(2n+2) {
-        background-color: #e2e2e2;
-    }
+            background-color: #e2e2e2;
+        }
 
 .comment h4 {
-        margin-top: 12px;
-        color: #468284;
-    }
+            margin-top: 12px;
+            color: #468284;
+        }
 
 .comment p {
-        font-size: 0.95rem;
-        margin-top: 5px;
-    }
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
 
 .comment__user-image {
-        margin-top: 3px;
-        display: block;
-        margin: auto;
-    }
+            margin-top: 3px;
+            display: block;
+            margin: auto;
+        }
 
 @media only screen and (max-width: 767px) {
 
 .comment__user-image {
-            padding-top: 10px
-    }
+                padding-top: 10px
+        }
     }
 
 .comment__button {
-        text-align: center;
-    }
+            text-align: center;
+        }
 
 .comment__button--sm {
-            margin-bottom: 0;
-            margin-top: 10px;
+                margin-bottom: 0;
+                margin-top: 10px;
+            }
+
+.comment .col--12 {
+            text-align: right;
+            padding: 12px 8px 7px;
         }
+
+@media only screen and (max-width: 767px) {
+
+.comment .col--12 {
+                text-align: center
+        }
+    }
+
+.comment form {
+            display: inline-block;
+        }
+
+.comment .action {
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 700;
+            border-radius: 3px;
+            border: none;
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+.comment a {
+            padding: 3.1px 1.7px 3px 1.7px;
+            width: 75px;
+            background-color: #468284;
+        }
+
+.comment a:hover {
+                background-color: #386769;
+            }
+
+.comment button.action {
+            padding: 3px 0;
+            background-color: #7c7c7c;
+            width: 75px;
+        }
+
+.comment button.action:hover {
+                background-color: #1F2024;
+            }

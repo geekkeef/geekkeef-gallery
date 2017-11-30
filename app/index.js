@@ -3,7 +3,7 @@ var express         = require('express'),
     mongoose        = require('mongoose'),
     passport        = require('passport'),
     LocalStrategy   = require('passport-local'),
-    popupTools      = require('popup-tools'),
+    methodOverride  = require('method-override'),
     Gallery         = require('./models/gallery'),
     Comment         = require('./models/comment'),
     User            = require('./models/user'),
@@ -13,11 +13,12 @@ var app = express();
 
 mongoose.connect('mongodb://localhost/geek-gallery', { useMongoClient: true });
 mongoose.Promise = global.Promise;
-seedDB();
+// seedDB();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
 
 // Passport Config
 app.use(require('express-session')({
@@ -31,6 +32,12 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+// Custom Middleware
+app.use(function(req,res,next){
+    res.locals.currentUser = req.user;
+    next(); // move to next code
+});
 
 //============================================================//
 
@@ -59,13 +66,16 @@ app.get('/gallery', function(req,res){
     });
 });
 
-app.post('/gallery', function(req,res){
+app.post('/gallery', isLoggedIn, function(req,res){
     var name = req.body.name;
     var image = req.body.image;
     var description = req.body.description;
     var photographer = req.body.photographer;
-
-    var newPhoto = {name:name,image:image,description:description,photographer:photographer};
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    }
+    var newPhoto = {name:name, image:image, description:description, photographer:photographer, author:author};
     Gallery.create(newPhoto, function(err, newPhoto){
         if(err){
             console.log(err);
@@ -75,7 +85,7 @@ app.post('/gallery', function(req,res){
     }); 
 });
 
-app.get('/gallery/new', function(req,res){
+app.get('/gallery/new', isLoggedIn, function(req,res){
     res.render('gallery/new', { title: 'addPhoto' });
 });
 
@@ -90,10 +100,38 @@ app.get('/gallery/:id', function(req,res){
     });
 });
 
+app.get('/gallery/:id/edit', checkOwnership, function(req,res){
+    Gallery.findById(req.params.id, function (err, foundPhoto) {
+        photoName = foundPhoto.name.replace(" ", "");
+        res.render('gallery/edit', { photo: foundPhoto, title: 'edit_' + photoName });
+    });
+});
+
+app.put('/gallery/:id', checkOwnership, function(req,res){
+    Gallery.findByIdAndUpdate(req.params.id, req.body.photo, function(err, updatedPhoto){
+        if(err){
+            console.log(err);
+            res.redirect('/home');
+        }else{
+            res.redirect('/gallery/' + req.params.id)
+        }
+    });
+});
+
+app.delete('/gallery/:id', checkOwnership, function (req, res) { 
+    Gallery.findByIdAndRemove(req.params.id, function (err) {
+        if(err){
+            res.redirect('/gallery');
+        }else{
+            res.redirect('/gallery');
+        }
+    });
+});
+
 /* Comment Routes 
 ===============================================================*/
 
-app.get('/gallery/:id/comments/new', function(req,res){
+app.get('/gallery/:id/comments/new', isLoggedIn, function(req,res){
     Gallery.findById(req.params.id, function(err, foundPhoto){
         if(err){
             console.log(err);
@@ -104,7 +142,7 @@ app.get('/gallery/:id/comments/new', function(req,res){
     });
 });
 
-app.post('/gallery/:id/comments', function(req,res){
+app.post('/gallery/:id/comments', isLoggedIn, function(req,res){
     Gallery.findById(req.params.id, function (err, foundPhoto){
         if (err) {
             console.log(err);
@@ -114,11 +152,45 @@ app.post('/gallery/:id/comments', function(req,res){
                 if(err){
                     console.log(err);
                 }else{
+                    createdComment.author.id = req.user._id;
+                    createdComment.author.username = req.user.username;
+                    createdComment.save();
+
                     foundPhoto.comments.push(createdComment);
                     foundPhoto.save();
                     res.redirect('/gallery/' + foundPhoto._id);
                 }
             });
+        }
+    });
+});
+
+app.get('/gallery/:id/comments/:comment_id/edit', checkCommentOwnership, function(req,res){
+    Comment.findById(req.params.comment_id, function(err,foundComment){
+        if(err){
+            res.redirect('back');
+        }else{
+            res.render('comments/edit', { photoId: req.params.id, photoUser: req.params.author, comment: foundComment, title: 'edit_Comment' });
+        }
+    });
+});
+
+app.put('/gallery/:id/comments/:comment_id', checkCommentOwnership, function(req,res){
+    Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, updatedComment){
+        if(err){
+            res.redirect('back');
+        }else{
+            res.redirect('/gallery/' + req.params.id);
+        }
+    });
+});
+
+app.delete('/gallery/:id/comments/:comment_id', checkCommentOwnership, function (req, res) {
+    Comment.findByIdAndRemove(req.params.comment_id, function (err) {
+        if (err) {
+            res.redirect('back');
+        } else {
+            res.redirect('/gallery/' + req.params.id);
         }
     });
 });
@@ -140,9 +212,73 @@ app.post('/register', function(req,res){
     });
 });
 
+app.post('/login', passport.authenticate('local',
+    {
+        successRedirect: 'back',
+        failureRedirect: '/'
+
+    }), function(req,res){});
+
+app.get('/logout', function(req,res){
+    req.logout();
+    res.redirect('back');
+});
+
+
+/* Middleware
+===============================================================*/
+
+function isLoggedIn(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }else{
+        res.redirect('back');
+    } 
+}
+
+function checkOwnership(req,res,next){
+    if (req.isAuthenticated()) {
+        Gallery.findById(req.params.id, function (err, foundPhoto) {
+            if (err) {
+                res.redirect('back');
+                console.log(err);
+            } else {
+                if (foundPhoto.author.id.equals(req.user._id)) {
+                    next();
+                } else {
+                    res.redirect('back');
+                }
+            }
+        });
+    } else {
+        res.redirect('back');
+    }
+}
+
+function checkCommentOwnership(req, res, next) {
+    if (req.isAuthenticated()) {
+        Comment.findById(req.params.comment_id, function (err, foundComment) {
+            if (err) {
+                res.redirect('back');
+                console.log(err);
+            } else {
+                if (foundComment.author.id.equals(req.user._id)) {
+                    next();
+                } else {
+                    res.redirect('back');
+                }
+            }
+        });
+    } else {
+        res.redirect('back');
+    }
+}
+
+
+
 /* Listen PORT
 ===============================================================*/
 
-app.listen(5080, function(){
+app.listen(5184, function(){
     console.log('SERVER STARTED');
 });

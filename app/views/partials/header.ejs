@@ -8,7 +8,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %>:{geekKeef}</title>
-    <link rel="stylesheet" type="text/css" href="../../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/styles.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -19,33 +19,83 @@
         <div class="info">
             <div class="container container--short">
                 <div class="row">
-                    <div class="col--6 col--6--sm">
-                        <div class="info__date">
-                            <p id="dateDisplay"></p>
+                    <% if(currentUser){ %>
+
+                        <div class="col--8 col--8--sm">
+                            <div class="row">
+                                <div class="col--6 col--6--sm">
+                                    <div class="info__user">
+                                        <p>Current Geek:
+                                            <span>
+                                                <%= currentUser.username %>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col--6 col--6--sm">
+                                    <div class="info__date">
+                                        <p id="dateDisplay"></p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col--6 col--6--sm">
-                        <div class="social">
-                            <!-- <a class="social__a open-modal" href="#" target="_blank">
-                                <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                            </a> -->
-                            <a class="social__a" href="https://www.twitter.com/geekkeef" target="_blank">
-                                <i class="fa fa-twitter-square" aria-hidden="true"></i>
-                            </a>
-                            <a class="social__a" href="https://www.instagram.com/geekkeef" target="_blank">
-                                <i class="fa fa-instagram" aria-hidden="true"></i>
-                            </a>
-                            <a class="social__a" href="https://www.reddit.com/user/geekkeef" target="_blank">
-                                <i class="fa fa-reddit" aria-hidden="true"></i>
-                            </a>
-                            <a class="social__a" href="http://www.github.com/geekkeef" target="_blank">
-                                <i class="fa fa-github" aria-hidden="true"></i>
-                            </a>
-                            <a class="social__a" href="https://www.snapchat.com/add/thegeekkeef" target="_blank">
-                                <i class="fa fa-snapchat-square" aria-hidden="true"></i>
-                            </a>
+                        <div class="col--4 col--4--sm">
+                            <div class="social">
+                                <!-- <a class="social__a open-modal" href="#" target="_blank">
+                                                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                                    </a> -->
+                                <a class="social__a" href="https://www.twitter.com/geekkeef" target="_blank">
+                                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                </a>
+                                <a class="social__a" href="https://www.instagram.com/geekkeef" target="_blank">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                                <a class="social__a" href="https://www.reddit.com/user/geekkeef" target="_blank">
+                                    <i class="fa fa-reddit" aria-hidden="true"></i>
+                                </a>
+                                <a class="social__a" href="http://www.github.com/geekkeef" target="_blank">
+                                    <i class="fa fa-github" aria-hidden="true"></i>
+                                </a>
+                                <a class="social__a" href="https://www.snapchat.com/add/thegeekkeef" target="_blank">
+                                    <i class="fa fa-snapchat-square" aria-hidden="true"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+
+                    <% } else { %>
+
+                        <div class="col--8 col--8--sm">
+                            <div class="row">
+                                <div class="col--12">
+                                    <div class="info__date">
+                                        <p id="dateDisplay"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col--4 col--4--sm">
+                            <div class="social">
+                                <!-- <a class="social__a open-modal" href="#" target="_blank">
+                                                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                                                    </a> -->
+                                <a class="social__a" href="https://www.twitter.com/geekkeef" target="_blank">
+                                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                                </a>
+                                <a class="social__a" href="https://www.instagram.com/geekkeef" target="_blank">
+                                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                                </a>
+                                <a class="social__a" href="https://www.reddit.com/user/geekkeef" target="_blank">
+                                    <i class="fa fa-reddit" aria-hidden="true"></i>
+                                </a>
+                                <a class="social__a" href="http://www.github.com/geekkeef" target="_blank">
+                                    <i class="fa fa-github" aria-hidden="true"></i>
+                                </a>
+                                <a class="social__a" href="https://www.snapchat.com/add/thegeekkeef" target="_blank">
+                                    <i class="fa fa-snapchat-square" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -99,12 +149,18 @@
                     </div>
                     <div class="nav__links--right">
                         <ul>
-                            <li>
-                                <a class="nav--register" href="#">Sign Up</a>
-                            </li>
-                            <li>
-                                <a class="nav--login" href="#">Login</a>
-                            </li>
+                            <% if(!currentUser){ %>
+                                <li>
+                                    <a class="nav--register" href="#">Sign Up</a>
+                                </li>
+                                <li>
+                                    <a class="nav--login" href="#">Login</a>
+                                </li>
+                            <% }else{ %>
+                                <li>
+                                    <a class="nav--logout" href="/logout">Logout</a>
+                                </li>
+                            <% } %>
                         </ul>
                     </div>
                 </div>

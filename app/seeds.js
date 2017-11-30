@@ -44,34 +44,34 @@ var data = [
 ]
 function seedDB(){
     Gallery.remove({}, function (err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('REMOVED GALLERY PHOTOS');
-            data.forEach(function (seed) {
-                Gallery.create(seed, function (err, photo) {
-                    if (err) {
-                        console.log(err);
-                    } else {
-                        console.log('ADDED PHOTO');
+        // if (err) {
+        //     console.log(err);
+        // } else {
+        //     console.log('REMOVED GALLERY PHOTOS');
+        //     data.forEach(function (seed) {
+        //         Gallery.create(seed, function (err, photo) {
+        //             if (err) {
+        //                 console.log(err);
+        //             } else {
+        //                 console.log('ADDED PHOTO');
 
-                        Comment.create({
-                            text: "Dope",
-                            author: "Geeks R Us"
-                        }, function(err,comment){
-                            if(err){
-                                console.log(err);
-                            }else{
-                                photo.comments.push(comment);
-                                photo.save();
-                                console.log('CREATED NEW COMMENT');
-                            }
+        //                 Comment.create({
+        //                     text: "Dope",
+        //                     author: "Geeks R Us"
+        //                 }, function(err,comment){
+        //                     if(err){
+        //                         console.log(err);
+        //                     }else{
+        //                         photo.comments.push(comment);
+        //                         photo.save();
+        //                         console.log('CREATED NEW COMMENT');
+        //                     }
                             
-                        });
-                    }
-                });
-            });
-        }
+        //                 });
+        //             }
+        //         });
+        //     });
+        // }
     });
 }
 

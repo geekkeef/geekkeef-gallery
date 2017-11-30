@@ -1,0 +1,35 @@
+<% include ../partials/header %>
+
+<div class="row main-gallery__add">
+    <div class="col--12">
+        <div class="gallery__title--bar">
+            <h3 class="gallery__title">
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
+                (Edit)Photo: <%= photo.name %>
+            </h3>
+        </div>
+    </div>
+</div>
+
+
+<form class="form--contact" action="/gallery/<%= photo._id %>?_method=PUT" method="POST">
+    <div class="form--group">
+        <input type="text" class="form--control" id="name" name="photo[name]" value="<%= photo.name %>">
+    </div>
+    <div class="form--group">
+        <input type="text" class="form--control" id="image" name="photo[image]" value="<%= photo.image %>">
+    </div>
+    <div class="form--group">
+        <input type="text" class="form--control" id="description" name="photo[description]" value="<%= photo.description %>">
+    </div>
+    <div class="form--group">
+        <input type="text" class="form--control" id="photographer" name="photo[photographer]" value="<%= photo.photographer %>">
+    </div>
+    <button type="submit" class="btn btn--lg btn--pink">Edit Photo</button>
+</form>
+
+<div class="main-gallery__button main-gallery__button--sm">
+    <a onclick="goBack()" class="btn btn--orange">Back</a>
+</div>
+
+<% include ../partials/footer %>
