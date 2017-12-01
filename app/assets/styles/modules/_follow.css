@@ -69,4 +69,19 @@
     &--panel--flickr {
         background-color: #0063DB;
     }
+    &--weather {
+        border-bottom: 2px solid $mainPink;
+        > div {
+            @mixin mediaMediumMax {
+                height: 150px;
+            }
+        }
+    }
+    .weatherwidget-io {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 23px;
+        margin-bottom: 21px;
+    }
 }

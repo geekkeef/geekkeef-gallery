@@ -1,0 +1,56 @@
+    /* Authentication 
+ ================================================================ */
+
+    .auth {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+        &__window {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            max-width: 550px;
+            height: 400px;
+            margin-top: 45px;
+            background-color: #fff;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+        }
+        &__title {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            padding: 0 15px;
+            input {
+                height: 42px;
+                display: block;
+                margin: 25px auto;
+            }
+        }
+        p {
+            margin-top: 25px;
+        }
+        a {
+            color: $mainPink;
+            text-decoration: underline;
+            &:hover {
+                color: $mainDarkPink;
+            }
+        }
+        &__back {
+            width: 85px;
+            display: block;
+            margin: 25px auto;
+
+            h1 {
+                font-size: 4.2rem;
+                color: $mainDarkBlue;
+            }
+            i {
+                cursor: pointer;
+            }
+        }
+    }

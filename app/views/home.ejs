@@ -6,8 +6,7 @@
                     <i class="fa fa-comment-o" aria-hidden="true"></i> Welcome</h3>        
             </div>
             <hr>
-</div>
-<!-- container short -->
+</div> <!-- container short -->
 
             <div class="welcome">
                 <div class="row">
@@ -62,6 +61,7 @@
 
 <div class="container container--short">
 
+        <!-- Gallery + Follow -->
             <div class="row row--gutters">
                 <div class="col--8 col--8--md">
                     <div class="gallery">
@@ -165,6 +165,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Follow -->
                 <div class="col--4 col--4--md">
                     <div class="follow">
                         <div class="panel">
@@ -172,7 +173,7 @@
                                 <div class="col--12">
                                     <div class="follow__title--bar">
                                         <h3 class="follow__title">
-                                            <i class="fa fa-at" aria-hidden="true"></i> <a class="open-modal" href="#">Follow</a></h3>
+                                            <i class="fa fa-at" aria-hidden="true"></i> <a>Follow</a></h3>
                                     </div>
                                     <hr>
                                 </div>
@@ -269,11 +270,101 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row follow--weather">
+                                        <div class="col--12">
+                                            <a class="weatherwidget-io" href="https://forecast7.com/en/42d10n72d59/springfield/?unit=us" data-label_1="THE 413" data-label_2="WEATHER"
+                                                data-font="Helvetica" data-mode="Current" data-days="3" data-theme="original">413 WEATHER</a>
+                                            <script>
+                                                !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "https://weatherwidget.io/js/widget.min.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "weatherwidget-io-js");
+                                            </script>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Video + Widgets -->
+
+            <div class="row row--gutters">
+                <div class="col--8 col--8--md">
+                    <div class="video">
+                        <div class="panel">
+                            <div class="row">
+                                <div class="col--12">
+                                    <div class="video__title--bar">
+                                        <h3 class="video__title">
+                                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                                            <a>Videos</a>
+                                        </h3>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col--12">
+                                    <iframe class="widget--youtube" width="100%" height="360" src="https://www.youtube.com/embed/videoseries?list=PL3axh_BJ38v0npGtP7qFbrp-PYLdHPGKy"
+                                        frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Widgets -->
+                <div class="col--4 col--4--md">
+                    <div class="widget">
+                        <div class="panel">
+                            <div id="pod" class="row">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About -->
+            <div id="about" class="about">
+                <hr>
+                <div class="panel">
+                    <div class="row">
+                        <div class="col--12">
+                            <div class="about__title--bar">
+                                <h3 class="about__title--bar--title">
+                                    <i class="fa fa-info-circle" aria-hidden="true"></i> About</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row about__text-section">
+                        <div class="about__image col--4 col--4--sm"></div>
+                        <div class="col--8 col--8--sm">
+                            <div class="panel">
+                                <div class="about__title">
+                                    <h3 class="about__title--h3">
+                                        About Keef <span>(Keith)</span>
+                                    </h3>
+                                </div>
+                                <p>
+                                     <strong>Lorem ipsum</strong> dolor amet chicharrones irony chambray biodiesel, franzen microdosing try-hard fam direct trade vape ramps banjo
+                                    fingerstache. Cliche woke roof party biodiesel. Shoreditch migas adaptogen, man bun hashtag readymade fixie freegan before
+                                    they sold out austin. Ugh semiotics beard migas, tote bag +1 iPhone farm-to-table vice. Crucifix biodiesel tilde cold-pressed
+                                    copper mug shabby chic beard DIY occupy kitsch neutra quinoa cred woke. Lo-fi waistcoat mixtape readymade farm-to-table williamsburg
+                                    woke tumeric. Vexillologist kitsch tote bag glossier iceland VHS stumptown sustainable kinfolk echo park pop-up fingerstache.
+                                </p>
+                                <p>
+                                     Knausgaard cliche echo park thundercats photo booth coloring book single-origin coffee. Activated charcoal gochujang readymade
+                                    unicorn, meditation cloud bread brunch before they sold out sustainable skateboard cronut synth leggings banh mi. Stumptown
+                                    glossier single-origin coffee butcher organic. Sustainable taxidermy paleo four loko you probably haven't heard of them ramps
+                                    intelligentsia man braid keffiyeh fam air plant. Drinking vinegar jianbing keytar wayfarers, bespoke bushwick vape roof party
+                                    glossier intelligentsia banjo readymade post-ironic forage.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
 
 <% include partials/footer %>

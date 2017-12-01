@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="HTML, CSS, JavaScript, NodeJs, NPM, Gulp, Git, Express, MongoDB, Geek, Nerd, Tech, Technology, Code, Gaming, Retro, Music, Jumpman, NBA, Sexy, Beauty, Dope, Funny, Humor, Movies, Film, LOTR, Lord of the Rings, GOT, Game of Thrones, Patronus, Harry Potter, Comics, Marvel, DC, Eggo, Stranger Things, Walking Dead, Delorean, Force, Star Wars, Classics, Throwbacks, Art, Photography, Sony, Alpha, Panasonic, Lumix, Health, Fitness, Good Vibes, Love, Keep Going">
+    <meta name="author" content="geekKeef, KJunior">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>signUp:{geekKeef}</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body class="auth--register">
+
+    <div class="container container--short">
+
+        <div class="nav nav--navbar">
+            <div class="nav__menu-icon">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <a class="nav__logo" href="http://www.geekkeef.com">
+                <img class="nav__logo--img" alt="geekKeef-icon" src="/images/geekkeef-icon-001.png">
+            </a>
+            <div class="nav__menu-content">
+                <div class="nav__links--left">
+                    <ul>
+                        <li>
+                            <a href="/home">Home</a>
+                        </li>
+                        <li>
+                            <a href="/home#about">About</a>
+                        </li>
+                        <li>
+                            <a href="/gallery">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="/home#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav__links--right">
+                    <ul>
+                        <li>
+                            <a class="nav--login" href="/login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+            <% if(message && message.length > 0){ %>
+                <div class="flash">
+                    <h3 class="flash__title">
+                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        <%= message %>
+                    </h3>
+                </div>
+                <% } %>
+
+        <!-- Auth -->
+        <div class="auth">
+            <div class="auth__window">
+
+                <div class="auth__title">
+                    <h1 class="logo__h1 logo__h1--modal">
+                        <span class="logo__span">
+                            <i class="fa fa-share" aria-hidden="true"></i> Register</span>
+                    </h1>
+                </div>
+
+                <form action="/userregister" method="POST">
+                    <div class="form--group">
+                        <input type="text" class="form--control" id="username" name="username" placeholder="Username">
+                    </div>
+                    <div class="form--group">
+                        <input type="password" class="form--control" id="password" name="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn--lg btn--orange">Login</button>
+                </form>
+                <p><a href="/login">Already have an account?</a></p>
+            </div>
+        </div>
+
+        <div class="auth__back">
+        
+            <a onclick="goBack()">
+                <h1>
+                    <i class="fa fa-undo" aria-hidden="true"></i>
+                </h1>
+            </a>
+        
+        </div>
+
+    </div>
+    <!-- container short -->
+
+    <!-- App Script -->
+    <script type="text/javascript" src="../../../scripts/app.js"></script>
+        <script>
+            function goBack() {
+                history.back();
+            }
+        </script>
+</body>
+
+</html>

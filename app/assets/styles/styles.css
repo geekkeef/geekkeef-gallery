@@ -19,3 +19,8 @@
 @import "modules/_main-gallery";
 @import "modules/_photo";
 @import "modules/_comment";
+@import "modules/_video";
+@import "modules/_widget";
+@import "modules/_about";
+@import "modules/_auth";
+@import "modules/_flash";

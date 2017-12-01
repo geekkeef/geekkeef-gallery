@@ -1,0 +1,37 @@
+/* Video + YouTube
+ ================================================================ */
+
+.video {
+    background-color: $bgColorDark;
+    border-radius: 3px;
+    @mixin mediaMediumMax {
+        div.panel:first-child {
+            margin-bottom: 70px;
+        }
+    }
+    &__title--bar {
+        background-color: $bgColorDark;
+        padding: 11px 0 7px 20px;
+        a {
+            color: $mainBlue;
+            &:hover {
+                color: #fff;
+            }
+        }
+        i {
+            color: $mainBlue;
+        }
+    }
+    &__title {
+        font-size: 0.9rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: $mainPink;
+        &--comment {
+            color: #fff;
+        }
+    }
+    hr {
+        margin-bottom: 0;
+    }
+}

@@ -15,6 +15,14 @@
             color: #fff;
             background-color: #222222;
         }
+        &.auth--login {
+            background-color: $mainPink;
+            padding-top: 90px;
+        }
+        &.auth--register {
+            background-color: $mainOrange;
+            padding-top: 90px;
+        }
     }
 
     a {

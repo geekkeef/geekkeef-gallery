@@ -1,0 +1,84 @@
+    /* About 
+ ================================================================ */
+
+    .about {
+        margin-top: 30px;
+        hr {
+            width: 99%;
+            margin-bottom: 5px;
+            @mixin mediaSmallMax {
+                margin-bottom: 0;
+            }
+        }
+        &__title--bar {
+            background-color: $mainBlue;
+            border-radius: 3px;
+            padding: 13px 0 13px 20px;
+            margin-right: 4px;
+            +hr {
+                margin-bottom: 30px;
+            }
+            @mixin mediaSmallMax {
+                margin-top: 3px;
+                margin-right: 0;
+            }
+        }
+        &__title--bar--title {
+            font-size: 0.9rem;
+            font-weight: 200;
+            letter-spacing: 0.3rem;
+            color: #fff;
+        }
+        &__title {
+            text-align: left;
+            padding-bottom: 12px;
+            @mixin mediaSmallMax {
+                text-align: center;
+            }
+        }
+        &__title--h3 {
+            padding-top: 7px;
+            padding-left: 15px;
+            font-size: 1.2rem;
+            font-weight: 200;
+            letter-spacing: 0.1rem;
+            color: $mainBlue;
+            @mixin mediaSmallMax {
+                font-size: 1.4rem;
+                padding-top: 15px;
+            }
+            span {
+                color: #999;
+            }
+        }
+        &__text-section {
+            padding-bottom: 7px;
+            border-bottom: 2px solid $mainBlue;
+            @mixin mediaSmallMax {
+                padding-bottom: 15px;
+            }
+        }
+        &__image {
+            background-image: url(/images/clem-onojeghuo-143743.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            @mixin mediaSmallMax {
+                background-image: url(/images/clem-onojeghuo-143743-wide.jpg);
+                height: 225px;
+            }
+        }
+        p {
+            font-size: 0.9rem;
+            padding-right: 3px;
+            padding-left: 15px;
+        }
+        p:first-of-type {
+            margin-bottom: 12px;
+        }
+        p:last-of-type {
+            margin-bottom: 25px;
+            @mixin mediaMediumMax {
+                margin-bottom: 15px;
+            }
+        }
+    }

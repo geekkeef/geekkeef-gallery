@@ -9922,10 +9922,20 @@ var _modalDisplay = __webpack_require__(6);
 
 var _modalDisplay2 = _interopRequireDefault(_modalDisplay);
 
+var _podSnackAdjust = __webpack_require__(7);
+
+var _podSnackAdjust2 = _interopRequireDefault(_podSnackAdjust);
+
+var _scrollPage = __webpack_require__(8);
+
+var _scrollPage2 = _interopRequireDefault(_scrollPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mobileMenu = new _mobileMenu2.default();
 var dateDisplay = new _dateDisplay2.default();
+var podSnack = new _podSnackAdjust2.default();
+var scroll = new _scrollPage2.default();
 var modal = new _modalDisplay2.default();
 
 checkPage();
@@ -10210,6 +10220,135 @@ var Modal = function () {
 }();
 
 exports.default = Modal;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var PodSnack = function () {
+    function PodSnack() {
+        _classCallCheck(this, PodSnack);
+
+        this.pod = (0, _jquery2.default)('#pod');
+        this.win = (0, _jquery2.default)(window);
+        this.events();
+    }
+
+    _createClass(PodSnack, [{
+        key: 'events',
+        value: function events() {
+            this.win.resize(this.windowSize.bind(this));
+            this.win.ready(this.windowSize.bind(this));
+        }
+    }, {
+        key: 'windowSize',
+        value: function windowSize() {
+            var windowSize = this.win.width();
+            if (windowSize <= 992) {
+                this.pod.html('<div class="widget--music" class="col--12"><iframe style="border:none" src="https://s3.amazonaws.com/files.podsnack.com/iframe/embed.html?hash=avhfvsyy&t=1512046612" width="' + windowSize * 0.77 + '" height="415" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></div>');
+            } else {
+                this.pod.html('<div class="widget--music" class="col--12"><iframe style="border:none" src="https://s3.amazonaws.com/files.podsnack.com/iframe/embed.html?hash=avhfvsyy&t=1512046612" width="310" height="415" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></div>');
+            }
+        }
+    }]);
+
+    return PodSnack;
+}();
+
+exports.default = PodSnack;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _jquery = __webpack_require__(0);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Scroll = function () {
+    function Scroll() {
+        _classCallCheck(this, Scroll);
+
+        this.pageURL = (0, _jquery2.default)(location).attr('href');
+        this.link = (0, _jquery2.default)('a');
+        this.event();
+    }
+
+    _createClass(Scroll, [{
+        key: 'event',
+        value: function event() {
+            this.link.click(this.checkPage.bind(this));
+        }
+    }, {
+        key: 'checkPage',
+        value: function checkPage(e) {
+
+            var href = (0, _jquery2.default)(e.target).attr('href');
+            var pageURL = this.pageURL;
+            href = href.substring(href.indexOf("#"));
+
+            if (href === "#about") {
+
+                if (pageURL.includes('/home')) {
+                    e.preventDefault();
+                    this.scrollPage(href, pageURL);
+                }
+            } else if (href === "#contact") {
+                this.scrollPage(href, pageURL);
+            }
+        }
+    }, {
+        key: 'scrollPage',
+        value: function scrollPage(h, url) {
+
+            if (url.includes('/login') || url.includes('/register')) {
+                return true;
+            } else {
+                (0, _jquery2.default)('html, body').animate({
+                    scrollTop: (0, _jquery2.default)(h).offset().top
+                }, 800, function () {
+
+                    window.location.href = h;
+                });
+                return false;
+            }
+        }
+    }]);
+
+    return Scroll;
+}();
+
+exports.default = Scroll;
 
 /***/ })
 /******/ ]);

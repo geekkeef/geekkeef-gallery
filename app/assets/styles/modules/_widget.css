@@ -1,0 +1,10 @@
+/* Weather + Music
+ ================================================================ */
+
+.widget {
+    &--youtube,
+    &--music {
+        display: block;
+        margin: 0 auto;
+    }
+}

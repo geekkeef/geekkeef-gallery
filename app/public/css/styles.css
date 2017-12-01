@@ -470,6 +470,16 @@ body.splash {
             background-color: #222222;
         }
 
+body.auth--login {
+            background-color: #e3415c;
+            padding-top: 90px;
+        }
+
+body.auth--register {
+            background-color: #fcb000;
+            padding-top: 90px;
+        }
+
 a {
         text-decoration: none;
     }
@@ -1590,6 +1600,25 @@ li .nav--logout {
         background-color: #0063DB;
     }
 
+.follow--weather {
+        border-bottom: 2px solid #e3415c;
+    }
+
+@media only screen and (max-width: 992px) {
+
+.follow--weather > div {
+                height: 150px
+        }
+    }
+
+.follow .weatherwidget-io {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 23px;
+        margin-bottom: 21px;
+    }
+
 /* Form 
  ================================================================ */
 
@@ -2459,3 +2488,273 @@ li .nav--logout {
 .comment button.action:hover {
                 background-color: #1F2024;
             }
+
+/* Video + YouTube
+ ================================================================ */
+
+.video {
+    background-color: #1F2024;
+    border-radius: 3px;
+}
+
+@media only screen and (max-width: 992px) {
+        .video div.panel:first-child {
+            margin-bottom: 70px;
+        }
+    }
+
+.video__title--bar {
+        background-color: #1F2024;
+        padding: 11px 0 7px 20px;
+    }
+
+.video__title--bar a {
+            color: #468284;
+        }
+
+.video__title--bar a:hover {
+                color: #fff;
+            }
+
+.video__title--bar i {
+            color: #468284;
+        }
+
+.video__title {
+        font-size: 0.9rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: #e3415c;
+    }
+
+.video__title--comment {
+            color: #fff;
+        }
+
+.video hr {
+        margin-bottom: 0;
+    }
+
+/* Weather + Music
+ ================================================================ */
+
+.widget--youtube,
+    .widget--music {
+        display: block;
+        margin: 0 auto;
+    }
+
+/* About 
+ ================================================================ */
+
+.about {
+        margin-top: 30px;
+    }
+
+.about hr {
+            width: 99%;
+            margin-bottom: 5px;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.about hr {
+                margin-bottom: 0
+        }
+    }
+
+.about__title--bar {
+            background-color: #468284;
+            border-radius: 3px;
+            padding: 13px 0 13px 20px;
+            margin-right: 4px;
+        }
+
+.about__title--bar +hr {
+                margin-bottom: 30px;
+            }
+
+@media only screen and (max-width: 767px) {
+
+.about__title--bar {
+                margin-top: 3px;
+                margin-right: 0
+        }
+    }
+
+.about__title--bar--title {
+            font-size: 0.9rem;
+            font-weight: 200;
+            letter-spacing: 0.3rem;
+            color: #fff;
+        }
+
+.about__title {
+            text-align: left;
+            padding-bottom: 12px;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.about__title {
+                text-align: center
+        }
+    }
+
+.about__title--h3 {
+            padding-top: 7px;
+            padding-left: 15px;
+            font-size: 1.2rem;
+            font-weight: 200;
+            letter-spacing: 0.1rem;
+            color: #468284;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.about__title--h3 {
+                font-size: 1.4rem;
+                padding-top: 15px
+        }
+    }
+
+.about__title--h3 span {
+                color: #999;
+            }
+
+.about__text-section {
+            padding-bottom: 7px;
+            border-bottom: 2px solid #468284;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.about__text-section {
+                padding-bottom: 15px
+        }
+    }
+
+.about__image {
+            background-image: url(/images/clem-onojeghuo-143743.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.about__image {
+                background-image: url(/images/clem-onojeghuo-143743-wide.jpg);
+                height: 225px
+        }
+    }
+
+.about p {
+            font-size: 0.9rem;
+            padding-right: 3px;
+            padding-left: 15px;
+        }
+
+.about p:first-of-type {
+            margin-bottom: 12px;
+        }
+
+.about p:last-of-type {
+            margin-bottom: 25px;
+        }
+
+@media only screen and (max-width: 992px) {
+
+.about p:last-of-type {
+                margin-bottom: 15px
+        }
+    }
+
+/* Authentication 
+ ================================================================ */
+
+.auth {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        text-align: center;
+    }
+
+.auth__window {
+            display: block;
+            margin: 0 auto;
+            position: relative;
+            max-width: 550px;
+            height: 400px;
+            margin-top: 45px;
+            background-color: #fff;
+            border: 1px solid #bbb;
+            border-radius: 5px;
+            -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+                    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+.auth__title {
+            text-align: center;
+        }
+
+.auth form {
+            text-align: center;
+            padding: 0 15px;
+        }
+
+.auth form input {
+                height: 42px;
+                display: block;
+                margin: 25px auto;
+            }
+
+.auth p {
+            margin-top: 25px;
+        }
+
+.auth a {
+            color: #e3415c;
+            text-decoration: underline;
+        }
+
+.auth a:hover {
+                color: #bf243e;
+            }
+
+.auth__back {
+            width: 85px;
+            display: block;
+            margin: 25px auto;
+        }
+
+.auth__back h1 {
+                font-size: 4.2rem;
+                color: #386769;
+            }
+
+.auth__back i {
+                cursor: pointer;
+            }
+
+/* Flash Messages 
+ ================================================================ */
+
+.flash {
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    z-index: 5;
+    background-color: rgba(252,176,0, 0.3);
+    text-align: center;
+}
+
+.flash__title {
+        font-size: 0.9rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: #16151a;
+    }
