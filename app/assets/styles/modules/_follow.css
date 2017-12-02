@@ -70,7 +70,7 @@
         background-color: #0063DB;
     }
     &--weather {
-        border-bottom: 2px solid $mainPink;
+        border-bottom: 1px solid $mainBorder;
         > div {
             @mixin mediaMediumMax {
                 height: 150px;

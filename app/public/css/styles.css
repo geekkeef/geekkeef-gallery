@@ -1601,7 +1601,7 @@ li .nav--logout {
     }
 
 .follow--weather {
-        border-bottom: 2px solid #e3415c;
+        border-bottom: 1px solid #9A9A9A;
     }
 
 @media only screen and (max-width: 992px) {

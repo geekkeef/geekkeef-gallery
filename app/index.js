@@ -13,7 +13,7 @@ var express         = require('express'),
     User            = require('./models/user'),
     Msg             = require('./models/message'),
     seedDB          = require('./seeds');
-    port            = process.env.PORT || 5050;
+    port            = process.env.PORT || 8484;
 
 var app = express();
 
@@ -168,6 +168,7 @@ app.post('/gallery', isLoggedIn, function(req,res){
 });
 
 app.get('/gallery/new', isLoggedIn, function(req,res){
+    
     res.render('gallery/new', { title: 'addPhoto' });
 });
 
