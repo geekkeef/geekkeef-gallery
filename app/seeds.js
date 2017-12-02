@@ -44,6 +44,7 @@ var data = [
 ]
 function seedDB(){
     Gallery.remove({}, function (err) {
+        console.log('CLEARED DB');
         // if (err) {
         //     console.log(err);
         // } else {

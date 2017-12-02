@@ -2501,6 +2501,11 @@ li .nav--logout {
         .video div.panel:first-child {
             margin-bottom: 70px;
         }
+            @media only screen and (max-width: 767px) {
+        .video div.panel:first-child {
+                margin-bottom: 40px
+        }
+    }
     }
 
 .video__title--bar {

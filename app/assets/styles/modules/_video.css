@@ -7,6 +7,9 @@
     @mixin mediaMediumMax {
         div.panel:first-child {
             margin-bottom: 70px;
+            @mixin mediaSmallMax {
+                margin-bottom: 40px;
+            }
         }
     }
     &__title--bar {

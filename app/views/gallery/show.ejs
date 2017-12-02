@@ -47,7 +47,7 @@
                 <div class="photo__user">
 
                     <div class="row">
-                        <% if(currentUser && photo.author.id.equals(currentUser._id)){ %>
+                        <% if(currentUser && photo.author.id.equals(currentUser.id)){ %>
                             <div class="col--2 col--2--md">
                                 <a class="action" href="/gallery/<%= photo._id %>/edit">Edit</a>
                             </div>
