@@ -1137,7 +1137,7 @@ li .nav--logout {
         }
 
 .logo__h1--modal {
-            padding-top: 20px;
+            padding-top: 30px;
             padding-bottom: 20px;
             word-spacing: -1rem;
         }
@@ -1149,7 +1149,7 @@ li .nav--logout {
 @media only screen and (max-width: 767px) {
 
 .logo__h1--modal {
-                font-size: 2.8rem;
+                font-size: 3.3rem;
                 letter-spacing: 0rem;
                 word-spacing: -0.9rem
         }
@@ -1274,8 +1274,15 @@ li .nav--logout {
 
 .welcome__img--controller {
             background-image: url(/images/ugur-akdemir-238673.jpg);
-            height: 476px;
+            height: 700px;
         }
+
+@media only screen and (max-width: 1400px) {
+
+.welcome__img--controller {
+                height: 600px
+        }
+    }
 
 @media only screen and (max-width: 767px) {
 
@@ -1286,8 +1293,15 @@ li .nav--logout {
 
 .welcome__img__md--trooper {
             background-image: url(/images/ciprian-boiciuc-193062.jpg);
-            height: 238px;
+            height: 350px;
         }
+
+@media only screen and (max-width: 1400px) {
+
+.welcome__img__md--trooper {
+                height: 300px
+        }
+    }
 
 @media only screen and (max-width: 992px) {
 
@@ -1305,8 +1319,15 @@ li .nav--logout {
 
 .welcome__img__md--pc {
             background-image: url(/images/nordwood-themes-387855.jpg);
-            height: 238px;
+            height: 350px;
         }
+
+@media only screen and (max-width: 1400px) {
+
+.welcome__img__md--pc {
+                height: 300px
+        }
+    }
 
 @media only screen and (max-width: 992px) {
 
@@ -1324,8 +1345,15 @@ li .nav--logout {
 
 .welcome__img__md--arcade {
             background-image: url(/images/daniel-monteiro-416820.jpg);
-            height: 238px;
+            height: 350px;
         }
+
+@media only screen and (max-width: 1400px) {
+
+.welcome__img__md--arcade {
+                height: 300px
+        }
+    }
 
 @media only screen and (max-width: 992px) {
 
@@ -1343,8 +1371,15 @@ li .nav--logout {
 
 .welcome__img__md--booth {
             background-image: url(/images/joel-muniz-394897.jpg);
-            height: 238px;
+            height: 350px;
         }
+
+@media only screen and (max-width: 1400px) {
+
+.welcome__img__md--booth {
+                height: 300px
+        }
+    }
 
 @media only screen and (max-width: 992px) {
 
@@ -1882,6 +1917,14 @@ li .nav--logout {
         -webkit-transform: translate(-50%, 0);
                 transform: translate(-50%, 0);
         z-index: 5;
+    }
+
+@media only screen and (max-width: 767px) {
+
+.modal__window {
+            width: 80%;
+            min-width: 250px
+    }
     }
 
 .modal__shade {
@@ -2885,3 +2928,20 @@ li .nav--logout {
         padding-bottom: 15px;
         color: #e3415c;
     }
+
+/* Reveal Items
+ ================================================================ */
+
+.reveal-item {
+        opacity: 0;
+        -webkit-transition: all 0.6s ease-in-out;
+        transition: all 0.6s ease-in-out;
+        -webkit-transform: scale(1.2);
+                transform: scale(1.2);
+    }
+
+.reveal-item--visible {
+            opacity: 1;
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+        }

@@ -32,7 +32,8 @@
     "normalize.css": "^7.0.0",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^4.4.0"
+    "passport-local-mongoose": "^4.4.0",
+    "waypoints": "^4.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",

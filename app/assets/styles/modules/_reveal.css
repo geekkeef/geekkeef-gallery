@@ -1,0 +1,12 @@
+    /* Reveal Items
+ ================================================================ */
+
+    .reveal-item {
+        opacity: 0;
+        transition: all 0.6s ease-in-out;
+        transform: scale(1.2);
+        &--visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }

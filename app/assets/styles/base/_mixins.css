@@ -28,6 +28,12 @@
     }
 }
 
+@define-mixin welcomeHome {
+    @media only screen and (max-width: 1400px) {
+        @mixin-content;
+    }
+}
+
 @define-mixin clearTable {
     &::after {
         content: "";

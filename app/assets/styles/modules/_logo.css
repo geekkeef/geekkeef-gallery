@@ -39,14 +39,14 @@
             font-size: 4.4em;
         }
         &--modal {
-            padding-top: 20px;
+            padding-top: 30px;
             padding-bottom: 20px;
             word-spacing: -1rem;
             i {
                 margin-right: 12px;
             }
             @mixin mediaSmallMax {
-                font-size: 2.8rem;
+                font-size: 3.3rem;
                 letter-spacing: 0rem;
                 word-spacing: -0.9rem;
                 i {
