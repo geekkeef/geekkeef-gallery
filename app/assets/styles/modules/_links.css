@@ -1,0 +1,84 @@
+/* Links
+ ================================================================ */
+
+.links {
+    background: url(/images/christopher-gower-291240.jpg) fixed center no-repeat;
+    background-size: cover;
+    margin-top: 30px;
+    padding-bottom: 40px;
+    hr {
+        width: 99%;
+        margin-bottom: 5px;
+        @mixin mediaSmallMax {
+            margin-bottom: 0;
+        }
+    }
+    &__title--bar {
+        background-color: $mainPink;
+        border-radius: 3px;
+        padding: 13px 0 13px 20px;
+        margin-right: 4px;
+        margin-top: 15px;
+        margin-bottom: 90px;
+        +hr {
+            margin-bottom: 30px;
+        }
+        @mixin mediaSmallMax {
+            margin-top: 25px;
+            margin-right: 0;
+        }
+    }
+    &__title--bar--title {
+        font-size: 0.9rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: #fff;
+    }
+    &__image {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 160px;
+        height: 160px;
+        margin: 0 auto -80px auto;
+        position: relative;
+        top: -80px;
+    }
+    &__section {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 0 1.8rem 35px 1.8rem;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        @mixin mediaMediumMax {
+            margin-top: 100px;
+            padding: 0 5rem 35px 5rem;
+            position: relative;
+            display: table;
+            left: calc(-50vw + 50%);
+            width: 100vw;
+        }
+        p {
+            font-size: 0.8rem;
+        }
+    }
+    .first {
+        margin-top: 0;
+    }
+    &__title {
+        font-weight: 200;
+        text-align: center;
+        font-size: 1.1rem;
+        padding-bottom: 15px;
+        padding-top: 20px;
+        a {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: $mainDarkOrange;
+        }
+    }
+    &__subtitle {
+        font-weight: 400;
+        text-align: center;
+        padding-bottom: 15px;
+        color: $mainPink;
+    }
+}

@@ -9,9 +9,8 @@
         font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
         color: #333;
         &.splash {
-            background: url(http://geekkeef.com/assets/pix/alexandre-st-louis-447911.jpg);
+            background: url(http://geekkeef.com/assets/pix/alexandre-st-louis-447911.jpg) no-repeat;
             background-size: cover;
-            background-repeat: no-repeat;
             color: #fff;
             background-color: #222222;
         }
@@ -133,6 +132,14 @@
         &--gutters>div {
             padding-right: 10px;
             box-sizing: border-box;
+        }
+        &--equal-height {
+            display: flex;
+            & > div {
+                float: none;
+                display: flex;
+            }
+
         }
     }
 

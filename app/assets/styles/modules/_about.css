@@ -7,7 +7,7 @@
             width: 99%;
             margin-bottom: 5px;
             @mixin mediaSmallMax {
-                margin-bottom: 0;
+                margin-bottom: 15px;
             }
         }
         &__title--bar {
@@ -52,8 +52,8 @@
             }
         }
         &__text-section {
-            padding-bottom: 7px;
-            border-bottom: 2px solid $mainBlue;
+            padding-bottom: 10px;
+            border-bottom: 1px solid $mainBorder;
             @mixin mediaSmallMax {
                 padding-bottom: 15px;
             }
@@ -65,6 +65,11 @@
             @mixin mediaSmallMax {
                 background-image: url(/images/clem-onojeghuo-143743-wide.jpg);
                 height: 225px;
+                margin-top: 15px;
+                position: relative;
+                display: table;
+                left: calc(-50vw + 50%);
+                width: 100vw;
             }
         }
         p {

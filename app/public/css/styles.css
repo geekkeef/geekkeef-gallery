@@ -463,9 +463,8 @@ body {
     }
 
 body.splash {
-            background: url(http://geekkeef.com/assets/pix/alexandre-st-louis-447911.jpg);
+            background: url(http://geekkeef.com/assets/pix/alexandre-st-louis-447911.jpg) no-repeat;
             background-size: cover;
-            background-repeat: no-repeat;
             color: #fff;
             background-color: #222222;
         }
@@ -618,6 +617,20 @@ html,
             -webkit-box-sizing: border-box;
                     box-sizing: border-box;
         }
+
+.row--equal-height {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+
+        }
+
+.row--equal-height > div {
+                float: none;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+            }
 
 .col--1 {
         width: 8.33%;
@@ -1723,10 +1736,6 @@ li .nav--logout {
 /* Footer 
  ================================================================ */
 
-.footer {
-    margin-top: 75px;
-}
-
 .footer--top {
         background-color: #1F2024;
         padding-top: 35px;
@@ -2564,7 +2573,7 @@ li .nav--logout {
 @media only screen and (max-width: 767px) {
 
 .about hr {
-                margin-bottom: 0
+                margin-bottom: 15px
         }
     }
 
@@ -2628,8 +2637,8 @@ li .nav--logout {
             }
 
 .about__text-section {
-            padding-bottom: 7px;
-            border-bottom: 2px solid #468284;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #9A9A9A;
         }
 
 @media only screen and (max-width: 767px) {
@@ -2649,7 +2658,12 @@ li .nav--logout {
 
 .about__image {
                 background-image: url(/images/clem-onojeghuo-143743-wide.jpg);
-                height: 225px
+                height: 225px;
+                margin-top: 15px;
+                position: relative;
+                display: table;
+                left: calc(-50vw + 50%);
+                width: 100vw
         }
     }
 
@@ -2762,4 +2776,112 @@ li .nav--logout {
         font-weight: 200;
         letter-spacing: 0.3rem;
         color: #16151a;
+    }
+
+/* Links
+ ================================================================ */
+
+.links {
+    background: url(/images/christopher-gower-291240.jpg) fixed center no-repeat;
+    background-size: cover;
+    margin-top: 30px;
+    padding-bottom: 40px;
+}
+
+.links hr {
+        width: 99%;
+        margin-bottom: 5px;
+    }
+
+@media only screen and (max-width: 767px) {
+
+.links hr {
+            margin-bottom: 0
+    }
+    }
+
+.links__title--bar {
+        background-color: #e3415c;
+        border-radius: 3px;
+        padding: 13px 0 13px 20px;
+        margin-right: 4px;
+        margin-top: 15px;
+        margin-bottom: 90px;
+    }
+
+.links__title--bar +hr {
+            margin-bottom: 30px;
+        }
+
+@media only screen and (max-width: 767px) {
+
+.links__title--bar {
+            margin-top: 25px;
+            margin-right: 0
+    }
+    }
+
+.links__title--bar--title {
+        font-size: 0.9rem;
+        font-weight: 200;
+        letter-spacing: 0.3rem;
+        color: #fff;
+    }
+
+.links__image {
+        border-radius: 50%;
+        overflow: hidden;
+        width: 160px;
+        height: 160px;
+        margin: 0 auto -80px auto;
+        position: relative;
+        top: -80px;
+    }
+
+.links__section {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 0 1.8rem 35px 1.8rem;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+    }
+
+@media only screen and (max-width: 992px) {
+
+.links__section {
+            margin-top: 100px;
+            padding: 0 5rem 35px 5rem;
+            position: relative;
+            display: table;
+            left: calc(-50vw + 50%);
+            width: 100vw
+    }
+    }
+
+.links__section p {
+            font-size: 0.8rem;
+        }
+
+.links .first {
+        margin-top: 0;
+    }
+
+.links__title {
+        font-weight: 200;
+        text-align: center;
+        font-size: 1.1rem;
+        padding-bottom: 15px;
+        padding-top: 20px;
+    }
+
+.links__title a {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #e88902;
+        }
+
+.links__subtitle {
+        font-weight: 400;
+        text-align: center;
+        padding-bottom: 15px;
+        color: #e3415c;
     }

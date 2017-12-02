@@ -2,7 +2,6 @@
  ================================================================ */
 
 .footer {
-    margin-top: 75px;
     &--top {
         background-color: $bgColorDark;
         padding-top: 35px;
