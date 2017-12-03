@@ -46,6 +46,9 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
         }
     }
+    &--back {
+        margin-bottom: 30px;
+    }
     &--lg {
         font-size: 1.1rem;
         padding: 8px 45px

@@ -1,4 +1,9 @@
 var message = [
+    "Welcome back!",
+    "On, it's YOU again...",
+    "Guess who's back?",
+    "A geek after my own heart <3",
+    "Return of the Nerd",
     "Welcome to Geektopia",
     "Your nerdly travels begin here",
     "Are you ready for geekdom?",

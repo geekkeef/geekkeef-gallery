@@ -60,12 +60,14 @@ passport.use('login', new LocalStrategy({
                     return done(err);
                 if (!user) {
                     return done(null, false,
-                        req.flash('login', 'No geek found with that username'));
+                        req.flash('message', 'No geek found with that username'));
                 }
                 if (!user.validPassword(password)) {
                     return done(null, false,
-                        req.flash('login', 'Opps! Wrong password'));
+                        req.flash('message', 'Opps! Wrong password'));
                 }
+                var randomMsg = Msg[Math.floor(Math.random() * Msg.length)];
+                req.flash('message', randomMsg );
                 return done(null, user);
             }
         );
@@ -77,36 +79,20 @@ passport.use('register', new LocalStrategy({
 }, function (req, username, password, done) {
         User.findOne({ username: username }, function (err, user) {
             if (err) { 
-                console.log('*******************');
-                console.log('if err');
-                console.log(err.message);
-                console.log('*******************');
-                return done(null, false, req.flash('register', err.message));
+                return done(err);
             }
             if (user) {
-                console.log('*******************');
-                console.log('if user');
-                console.log('*******************');
                 return done(null, false, 
-                    req.flash('register', 'A geek with that username already exists'));
+                    req.flash('message', 'A geek with that username already exists'));
             }else {
                 var newUser = new User();
                 newUser.username = username;
                 newUser.password = newUser.generateHash(password);
-                console.log('*******************');
-                console.log('newUser');
-                console.log('*******************'); 
                 newUser.save(function (err) {
                     if (err) {
-                        console.log('*******************');
-                        console.log('save err');
-                        console.log('*******************');
-                        console.log('Error in Saving user: ' + err);
                         throw err;
                     }
-                    console.log('*******************');
-                    console.log('created newUser');
-                    console.log('*******************');
+                    req.flash('message', 'Welcome, Fellow Geek');
                     return done(null, newUser);
                 });
             } 
@@ -121,7 +107,7 @@ passport.use('register', new LocalStrategy({
 // Custom Middleware
 app.use(function(req,res,next){
     res.locals.currentUser = req.user;
-    res.locals.message = req.flash('info');
+    res.locals.message = req.flash('message');
     next(); // move to next code
 });
 
@@ -157,11 +143,13 @@ app.post('/gallery', isLoggedIn, function(req,res){
         id: req.user.id,
         username: req.user.username
     }
-    var newPhoto = {name:name, image:image, description:description, photographer:photographer, author:author};
+    var newPhoto = {name:name, image:image, description:description, 
+        photographer:photographer, author:author};
     Gallery.create(newPhoto, function(err, newPhoto){
         if(err){
             console.log(err);
         }else{
+            req.flash('message', 'Photo added');
             res.redirect('/gallery');
         }
     }); 
@@ -206,6 +194,7 @@ app.delete('/gallery/:id', checkOwnership, function (req, res) {
         if(err){
             res.redirect('/login');
         }else{
+            req.flash('message', 'Photo deleted');
             res.redirect('/gallery');
         }
     });
@@ -233,7 +222,7 @@ app.post('/gallery/:id/comments', isLoggedIn, function(req,res){
         } else {
             Comment.create(req.body.comment, function(err, createdComment){
                 if(err){
-                    req.flash('info', 'Error: Something went wrong');
+                    req.flash('message', 'Error: Something went wrong');
                     console.log(err);
                 }else{
                     createdComment.author.id = req.user.id;
@@ -242,7 +231,7 @@ app.post('/gallery/:id/comments', isLoggedIn, function(req,res){
 
                     foundPhoto.comments.push(createdComment);
                     foundPhoto.save();
-                    req.flash('info', 'Comment added');
+                    req.flash('message', 'Comment added');
                     res.redirect('/gallery/' + foundPhoto._id);
                 }
             });
@@ -255,7 +244,8 @@ app.get('/gallery/:id/comments/:comment_id/edit', checkCommentOwnership, functio
         if(err){
             res.redirect('back');
         }else{
-            res.render('comments/edit', { photoId: req.params.id, photoUser: req.params.author, comment: foundComment, title: 'edit_Comment' });
+            res.render('comments/edit', { photoId: req.params.id, 
+                photoUser: req.params.author, comment: foundComment, title: 'edit_Comment' });
         }
     });
 });
@@ -285,7 +275,7 @@ app.delete('/gallery/:id/comments/:comment_id', checkCommentOwnership, function 
 ===============================================================*/
 
 app.get("/login", function (req, res) {
-    res.render('auth/login', { message: req.flash('login') });
+    res.render('auth/login');
 });
 
 
@@ -307,7 +297,7 @@ app.post('/userlogin', passport.authenticate('login',
 
 
 app.get("/register", function (req, res) {
-    res.render('auth/register', { message: req.flash('register') });
+    res.render('auth/register');
 });
 
 app.post('/register', passport.authenticate('register', {
@@ -325,90 +315,46 @@ app.post('/userregister', passport.authenticate('register', {
 
 app.get('/logout', function (req, res) {
     req.logout();
-    req.flash('info', 'Logged you out');
+    req.flash('message', 'Logged you out');
     res.redirect('back');
 });
-
-
-
-
-
-// app.post('/register', function(req,res){
-//     var newUser = new User({username: req.body.username});
-//     User.register(newUser, req.body.password, function(err, user){
-//         if(err){
-//             console.log(err);
-//             req.flash('message', err.message);
-//             return res.redirect('/register');
-//         }else{
-//             passport.authenticate('local')(req,res,function(){
-//                 unique = Msg[Math.floor(Math.random() * Msg.length)];
-//                 req.flash('message', unique);
-//                 res.redirect('back');
-//             });
-//         }
-//     });
-// });
-
-// app.post('/userregister', function (req, res) {
-//     var newUser = new User({ username: req.body.username, password: req.body.password });
-//     User.register(newUser, req.body.password, function (err, user) {
-//         if (err) {
-//             console.log(err);
-//             req.flash('message', err.message);
-//             return res.redirect('/register');
-//         } else {
-//             passport.authenticate('local')(req, res, function () {
-//                 unique = Msg[Math.floor(Math.random() * Msg.length)];
-//                 req.flash('message', unique);
-//                 res.redirect('/home');
-//             });
-//         }
-//     });
-// });
-
 
 /* Middleware
 ===============================================================*/
 
 function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){
-        console.log('AUTHENTICATED');
         return next();
     }else{
-        console.log('PLEASE LOGIN 1');
-        req.flash('info', 'Please login first');
+        req.flash('message', 'Please login first');
         res.redirect('/login');
     } 
 }
 
 function checkOwnership(req,res,next){
     if (req.isAuthenticated()) {
-        console.log('AUTHENTICATING GALLERY');
         Gallery.findById(req.params.id, function (err, foundPhoto) {
             if (err) {
-                req.flash('info', 'Error: Image not found');
+                req.flash('message', 'Error: Image not found');
                 res.redirect('back');
                 console.log(err);
             } else {
                 if (foundPhoto.author.id.equals(req.user.id)) {
                     next();
                 } else {
-                    req.flash('info', "Error: Not authorized");
+                    req.flash('message', "Error: Not authorized");
                     res.redirect('back');
                 }
             }
         });
     } else {
-        console.log('PLEASE LOGIN 2');
-        req.flash('info', 'Please login first');
+        req.flash('message', 'Please login first');
         res.redirect('back');
     }
 }
 
 function checkCommentOwnership(req, res, next) {
     if (req.isAuthenticated()) {
-        console.log('AUTHENTICATING COMMENT');
         Comment.findById(req.params.comment_id, function (err, foundComment) {
             if (err) {
                 res.redirect('back');
@@ -417,14 +363,13 @@ function checkCommentOwnership(req, res, next) {
                 if (foundComment.author.id.equals(req.user.id)) {
                     next();
                 } else {
-                    req.flash('info', "Error: Not authorized");
+                    req.flash('message', "Error: Not authorized");
                     res.redirect('back');
                 }
             }
         });
     } else {
-        console.log('PLEASE LOGIN 3');
-        req.flash('info', 'Please login first');
+        req.flash('message', 'Please login first');
         res.redirect('back');
     }
 }
