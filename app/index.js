@@ -25,13 +25,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.use(methodOverride('_method'));
-app.use(cookieParser('Kakarrot'));
+app.use(cookieParser('secret'));
 app.use(morgan('dev'));
 
 // Passport Config
 app.use(require('express-session')({
     cookie: {maxAge: 60000},
-    secret: 'Goonies never say die!!!',
+    secret: 'secret',
     resave: false,
     saveUninitialized: false
 }));
