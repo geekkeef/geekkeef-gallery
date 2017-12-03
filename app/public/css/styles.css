@@ -2852,7 +2852,7 @@ li .nav--logout {
         border-radius: 3px;
         padding: 13px 0 13px 20px;
         margin-right: 4px;
-        margin-top: 15px;
+        margin-top: 25px;
         margin-bottom: 90px;
     }
 
@@ -2922,9 +2922,16 @@ li .nav--logout {
 
 .links__title a {
             font-size: 1.3rem;
-            font-weight: 700;
+            font-weight: 200;
             color: #e88902;
         }
+
+@media only screen and (max-width: 767px) {
+
+.links__title a {
+                font-weight: 700
+        }
+    }
 
 .links__subtitle {
         font-weight: 400;

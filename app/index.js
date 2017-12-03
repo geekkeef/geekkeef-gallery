@@ -77,7 +77,7 @@ passport.use('login', new LocalStrategy({
 passport.use('register', new LocalStrategy({
     passReqToCallback: true
 }, function (req, username, password, done) {
-        User.findOne({ username: username }, function (err, user) {
+        User.findOne({ 'username': username }, function (err, user) {
             if (err) { 
                 return done(err);
             }
@@ -156,7 +156,6 @@ app.post('/gallery', isLoggedIn, function(req,res){
 });
 
 app.get('/gallery/new', isLoggedIn, function(req,res){
-    
     res.render('gallery/new', { title: 'addPhoto' });
 });
 
@@ -164,6 +163,8 @@ app.get('/gallery/:id', function(req,res){
     Gallery.findById(req.params.id).populate('comments').exec(function(err, foundPhoto){
         if(err || !foundPhoto || !req.params.id){
             console.log(err);
+            req.flash('message', 'Photo not found');
+            res.redirect('/gallery');
         }else{
             photoName = foundPhoto.name.replace(" ","");
             res.render('gallery/show', { photo: foundPhoto, title: 'photo_' + photoName});
@@ -173,8 +174,14 @@ app.get('/gallery/:id', function(req,res){
 
 app.get('/gallery/:id/edit', checkOwnership, function(req,res){
     Gallery.findById(req.params.id, function (err, foundPhoto) {
-        photoName = foundPhoto.name.replace(" ", "");
-        res.render('gallery/edit', { photo: foundPhoto, title: 'edit_' + photoName });
+        if (err || !foundPhoto || !req.params.id){
+            console.log(err);
+            req.flash('message', 'Photo not found');
+            res.redirect('/gallery');
+        }else{
+            photoName = foundPhoto.name.replace(" ", "");
+            res.render('gallery/edit', { photo: foundPhoto, title: 'edit_' + photoName });
+        }
     });
 });
 
@@ -182,7 +189,7 @@ app.put('/gallery/:id', checkOwnership, function(req,res){
     Gallery.findByIdAndUpdate(req.params.id, req.body.photo, function(err, updatedPhoto){
         if(err){
             console.log(err);
-            res.redirect('/home');
+            res.redirect('back');
         }else{
             res.redirect('/gallery/' + req.params.id)
         }
@@ -240,12 +247,22 @@ app.post('/gallery/:id/comments', isLoggedIn, function(req,res){
 });
 
 app.get('/gallery/:id/comments/:comment_id/edit', checkCommentOwnership, function(req,res){
-    Comment.findById(req.params.comment_id, function(err,foundComment){
-        if(err){
-            res.redirect('back');
+    Gallery.findById(req.params.id, function(err,foundCampground){
+        if(err || !foundCampground){
+            console.log(err);
+            req.flash('message', 'Photo not found');
+            return res.redirect('back');
         }else{
-            res.render('comments/edit', { photoId: req.params.id, 
-                photoUser: req.params.author, comment: foundComment, title: 'edit_Comment' });
+            Comment.findById(req.params.comment_id, function (err, foundComment) {
+                if (err) {
+                    res.redirect('back');
+                } else {
+                    res.render('comments/edit', {
+                        photoId: req.params.id,
+                        photoUser: req.params.author, comment: foundComment, title: 'edit_Comment'
+                    });
+                }
+            });
         }
     });
 });
@@ -334,8 +351,8 @@ function isLoggedIn(req,res,next){
 function checkOwnership(req,res,next){
     if (req.isAuthenticated()) {
         Gallery.findById(req.params.id, function (err, foundPhoto) {
-            if (err) {
-                req.flash('message', 'Error: Image not found');
+            if (err || !foundPhoto) {
+                req.flash('message', 'Photo not found');
                 res.redirect('back');
                 console.log(err);
             } else {
@@ -356,7 +373,8 @@ function checkOwnership(req,res,next){
 function checkCommentOwnership(req, res, next) {
     if (req.isAuthenticated()) {
         Comment.findById(req.params.comment_id, function (err, foundComment) {
-            if (err) {
+            if (err || !foundComment) {
+                req.flash('message', 'Comment not found');
                 res.redirect('back');
                 console.log(err);
             } else {

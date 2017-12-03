@@ -18,7 +18,7 @@
         border-radius: 3px;
         padding: 13px 0 13px 20px;
         margin-right: 4px;
-        margin-top: 15px;
+        margin-top: 25px;
         margin-bottom: 90px;
         +hr {
             margin-bottom: 30px;
@@ -71,8 +71,11 @@
         padding-top: 20px;
         a {
             font-size: 1.3rem;
-            font-weight: 700;
+            font-weight: 200;
             color: $mainDarkOrange;
+            @mixin mediaSmallMax {
+                font-weight: 700
+            }
         }
     }
     &__subtitle {
